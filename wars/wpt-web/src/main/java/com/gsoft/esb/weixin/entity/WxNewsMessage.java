@@ -8,7 +8,7 @@ package com.gsoft.esb.weixin.entity;
  * @author zhyi_12
  *
  */
-public class WxNewsMessage {
+public class WxNewsMessage implements WxData{
 
 	private String touser;
 	
