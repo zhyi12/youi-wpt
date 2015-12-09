@@ -1,0 +1,23 @@
+20151209 19:25:47 INFO SimpleThreadPool.initialize(270) | Job execution threads will use class loader of thread: localhost-startStop-1
+20151209 19:25:47 INFO SchedulerSignalerImpl.<init>(61) | Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+20151209 19:25:47 INFO QuartzScheduler.<init>(234) | Quartz Scheduler v.2.0.1 created.
+20151209 19:25:47 INFO QuartzScheduler.initialize(257) | Scheduler meta-data: Quartz Scheduler (v2.0.1) 'schedulerFactoryBean' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'com.gsoft.framework.job.LocalDataSourceJobStore' - which supports persistence. and is clustered.
+
+20151209 19:25:47 INFO StdSchedulerFactory.instantiate(1254) | Quartz scheduler 'schedulerFactoryBean' initialized from an externally provided properties instance.
+20151209 19:25:47 INFO StdSchedulerFactory.instantiate(1258) | Quartz scheduler version: 2.0.1
+20151209 19:25:47 INFO QuartzScheduler.setJobFactory(2223) | JobFactory set to: com.gsoft.framework.job.AdaptableJobFactory@7edca02b
+20151209 19:25:50 INFO UpdateChecker.doCheck(86) | New Quartz update(s) found: 2.1.7 [http://www.terracotta.org/kit/reflector?kitID=default&pageID=QuartzChangeLog]
+20151209 19:25:50 INFO QuartzScheduler.start(513) | Scheduler schedulerFactoryBean_$_NON_CLUSTERED started.
+20151209 19:26:25 WARN CodemapDaoHibernate.doInHibernate(250) | 根据属性code未能查找到对象！
+20151209 19:26:26 ERROR ButtonTag.hasPermission(107) | No bean named 'pageAuthFactory' is defined
+20151209 19:26:34 INFO serviceLog.writeLog(31) | TRAN:userManager.getPagerUsers,TIME:7,IP:0:0:0:0:0:0:0:1,INFO:WEB请求交易,交易流水号:000000028901;请求报文{pager:pageIndex=[1], pager:pageSize=[15], pager:property=[userId, loginName, userCaption, button], operator:userCaption=[LIKE]}
+20151209 19:26:35 INFO serviceLog.writeLog(31) | TRAN:userManager.getPagerUsers,TIME:831,IP:0:0:0:0:0:0:0:1,INFO:交易调用完成,交易流水号:000000028901;请求报文{pager:pageIndex=[1], pager:pageSize=[15], pager:property=[userId, loginName, userCaption, button], operator:userCaption=[LIKE]}响应报文:{"record":null,"message":null,"totalCount":9,"records":[{"userId":"1","loginName":"zhouyi","userActive":"1","userCaption":"zhouyi","roles":null,"group":"001","principalConfig":null},{"userId":"2","loginName":"user","userActive":"1","userCaption":"user","roles":null,"group":"001","principalConfig":null},{"userId":"4028d08150a8de7a0150a8df35460001","loginName":"flower","userActive":"1","userCaption":"流程管理人员","roles":null,"group":"002","principalConfig":null},{"userId":"4028d08150a8de7a0150a9f25ea20002","loginName":"reporter","userActive":"1","userCaption":"报表管理人员","roles":null,"group":"003","principalConfig":null},{"userId":"4028d08150a8de7a0150a9f4827e0003","loginName":"project","userActive":"0","userCaption":"代码管理人员","roles":null,"group":"003","principalConfig":null},{"userId":"4028d08150b7055b0150b71bc0e20001","loginName":"zhangsan","userActive":"1","userCaption":"张三","roles":null,"group":"003","principalConfig":null},{"userId":"4028d08150b7055b0150b71bc0e20002","loginName":"lisi","userActive":"1","userCaption":"李四","roles":null,"group":"003","principalConfig":null},{"userId":"4028d08150e665930150e679d6fa0001","loginName":"esber","userActive":null,"userCaption":"服务治理管理员1","roles":null,"group":null,"principalConfig":null},{"userId":"4028d081515856100151586ba71f0001","loginName":"mon","userActive":null,"userCaption":"mon","roles":null,"group":null,"principalConfig":null}],"instanceId":null,"trancode":"userManager.getPagerUsers"}
+20151209 19:26:37 INFO serviceLog.writeLog(31) | TRAN:userManager.getUser,TIME:16,IP:0:0:0:0:0:0:0:1,INFO:WEB请求交易,交易流水号:000000028902;请求报文{userId=[4028d08150a8de7a0150a8df35460001]}
+20151209 19:26:39 INFO serviceLog.writeLog(31) | TRAN:userManager.getUser,TIME:1089,IP:0:0:0:0:0:0:0:1,INFO:交易调用完成,交易流水号:000000028902;请求报文{userId=[4028d08150a8de7a0150a8df35460001]}响应报文:{"record":{"userId":"4028d08150a8de7a0150a8df35460001","loginName":"flower","userActive":"1","userCaption":"流程管理人员","roles":[{"roleId":"ROLE_FLOW","roleType":"1","roleCaption":"流程管理","menus":null,"rolePageElements":null}],"group":"002","principalConfig":null},"message":null,"totalCount":0,"records":null,"instanceId":null,"trancode":"91010201"}
+20151209 19:26:46 WARN CodemapDaoHibernate.doInHibernate(250) | 根据属性code未能查找到对象！

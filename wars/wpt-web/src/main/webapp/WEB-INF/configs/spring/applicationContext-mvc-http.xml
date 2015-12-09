@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+		http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file-2.2.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http-2.2.xsd
+		http://www.springframework.org/schema/integration/rmi http://www.springframework.org/schema/integration/rmi/spring-integration-rmi-2.2.xsd
+		http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws-2.2.xsd
+		http://www.springframework.org/schema/integration/amqp http://www.springframework.org/schema/integration/amqp/spring-integration-amqp-2.2.xsd
+		http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.2.xsd"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-file="http://www.springframework.org/schema/integration/file"
+	xmlns:int-http="http://www.springframework.org/schema/integration/http"
+	xmlns:int-mail="http://www.springframework.org/schema/integration/mail"
+	xmlns:int-rmi="http://www.springframework.org/schema/integration/rmi"
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit">
+	
+	<int-http:inbound-gateway request-channel="start" reply-timeout="12000" request-timeout="12000" 
+		name="/esb/{channel}/{interfaceName}/{serviceName}.json" 
+		path="/esb/{channel}/{interfaceName}/{serviceName}.json" supported-methods="POST"
+		mapped-response-headers="export,exportHeaders,exportProperties,exportConverts,Content-Encoding,Content-Type"
+		message-converters="httpResConverter" convert-exceptions="true" error-channel="exceptionChannel">
+		<!-- channel：通道名 -->
+		<int-http:header name="channel" expression="#pathVariables.channel" />
+		
+		<!-- interfaceName：接口名 -->
+		<int-http:header name="interfaceName" expression="#pathVariables.interfaceName" />
+		<!-- serviceName：服务名 -->
+		<int-http:header name="serviceName" expression="#pathVariables.serviceName" />
+		
+		<int-http:header name="Content-Type" expression="'application/json'" />
+		<int-http:header name="Content-Encoding" expression="'UTF-8'" />
+	</int-http:inbound-gateway>
+	
+	<bean class="org.springframework.integration.http.inbound.UriPathHandlerMapping" />
+	
+	<!-- 报表请求配置  -->
+<!-- 	<int-http:inbound-gateway request-channel="reportChannel" reply-timeout="12000" request-timeout="12000"  -->
+<!-- 		name="/esb/report/{format}/{reportName}.rpt" mapped-response-headers="reportName,Content-Encoding,Content-Type" -->
+<!-- 		path="/esb/report/{format}/{reportName}.rpt" supported-methods="GET" message-converters="reportConverter"> -->
+<!-- 		<int-http:header name="reportName" expression="#pathVariables.reportName" /> -->
+<!-- 		<int-http:header name="format" expression="#pathVariables.format" /> -->
+<!-- 		<int-http:header name="Content-Encoding" expression="'UTF-8'" /> -->
+<!-- 	</int-http:inbound-gateway> -->
+	
+	<!-- 报表服务器访问配置  -->
+	
+	
+	
+	
+</beans>
