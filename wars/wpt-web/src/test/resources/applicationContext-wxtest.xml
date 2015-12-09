@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http-2.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-http="http://www.springframework.org/schema/integration/http"
+	xmlns:context="http://www.springframework.org/schema/context">
+	
+	<context:property-placeholder location="classpath*:config-weixin.properties"/>
+	
+	<bean name="channelResolver" class="org.springframework.integration.support.channel.BeanFactoryChannelResolver"></bean>
+	
+	<bean class="org.springframework.integration.core.MessagingTemplate">
+		<property name="channelResolver" ref="channelResolver"></property>
+	</bean>
+	
+	<int:channel id="wxGetToken"></int:channel>
+	
+	<!-- test -->
+	<bean name="wxRequestRouter" class="com.gsoft.esb.weixin.service.impl.WxRequestRouter"></bean>
+	<bean name="wxTokenConverter" class="com.gsoft.esb.weixin.service.impl.WxTokenConverter"></bean>
+	<bean name="wxJsonConverter" class="com.gsoft.esb.weixin.service.impl.WxJsonConverter"></bean>
+	<bean name="wxRequestFactory" class="com.gsoft.esb.weixin.service.impl.WxRequestFactory"></bean>
+	
+	<bean name="wxUrlBuilder" class="com.gsoft.esb.weixin.service.impl.WxUrlBuilder">
+		<property name="httpUrls">
+			<map>
+				<entry key="getUsers" value="/user/get?access_token={accessToken}&amp;next_openid="></entry>
+				<entry key="getUserInfo" value="/user/info?access_token={accessToken}&amp;openid={openid}&amp;lang=zh_CN"></entry>
+				<entry key="getkflistChannel" value="/customservice/getkflist?access_token={accessToken}"></entry>
+				<!-- 发送客服消息 -->
+				<entry key="sendCustomMessage" value="/message/custom/send?access_token={accessToken}"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<int:router input-channel="wxStart"  ref="wxRequestRouter">
+	</int:router>
+	
+	<!-- 获取微信token -->
+	<int-http:outbound-gateway id="wx.getToken" http-method="POST" 
+		charset="UTF-8" url="${wx.baseUrl}/token?grant_type=client_credential&amp;appid={appid}&amp;secret={secret}" 
+		request-channel="wxGetToken" message-converters="wxTokenConverter" expected-response-type="java.lang.String" >
+		<int-http:uri-variable name="appid" expression="headers['appid']"/>
+		<int-http:uri-variable name="secret" expression="headers['secret']"/>
+	</int-http:outbound-gateway>
+	
+	<!--  -->
+	<int-http:outbound-gateway id="wx.getUrl" http-method-expression="headers['httpMethod']" expected-response-type-expression="@wxUrlBuilder.getRetType(headers,payload)"
+		request-factory="wxRequestFactory"  message-converters="wxJsonConverter"
+		charset="UTF-8" url-expression="@wxUrlBuilder.buildUrl(headers,payload)" 
+		request-channel="wxHttpChannel">
+		<int-http:uri-variable name="accessToken" expression="headers['access_token']"/>
+		<int-http:uri-variable name="openid" expression="headers['openid']"/>
+	</int-http:outbound-gateway>
+	<!-- 群发消息 -->
+	
+	
+</beans>
