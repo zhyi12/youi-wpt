@@ -51,4 +51,8 @@
 	<int:channel id="web"></int:channel>
 	<int:service-activator input-channel="web" ref="esbServiceFactory" method="exchange"/>
 	
+	
+	<!-- 微信服务适配器 -->
+	<import resource="applicationContext-service-wx.xml"/>
+	
 </beans>

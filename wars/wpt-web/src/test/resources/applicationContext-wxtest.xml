@@ -17,28 +17,35 @@
 		<property name="channelResolver" ref="channelResolver"></property>
 	</bean>
 	
-	<int:channel id="wxGetToken"></int:channel>
-	
 	<!-- test -->
 	<bean name="wxRequestRouter" class="com.gsoft.esb.weixin.service.impl.WxRequestRouter"></bean>
 	<bean name="wxTokenConverter" class="com.gsoft.esb.weixin.service.impl.WxTokenConverter"></bean>
 	<bean name="wxJsonConverter" class="com.gsoft.esb.weixin.service.impl.WxJsonConverter"></bean>
 	<bean name="wxRequestFactory" class="com.gsoft.esb.weixin.service.impl.WxRequestFactory"></bean>
+	<bean name="wxUploadConverter" class="com.gsoft.esb.weixin.service.impl.WxUploadConverter"></bean>
 	
 	<bean name="wxUrlBuilder" class="com.gsoft.esb.weixin.service.impl.WxUrlBuilder">
 		<property name="httpUrls">
 			<map>
+				<!-- 创建分组 -->
+				<entry key="createGroup" value="/groups/create?access_token={accessToken}"></entry>
+				<!-- 分配用户分组 -->
+				<entry key="updateGroupMember" value="/groups//members/update?access_token={accessToken}"></entry>
+				<!--  -->
 				<entry key="getUsers" value="/user/get?access_token={accessToken}&amp;next_openid="></entry>
 				<entry key="getUserInfo" value="/user/info?access_token={accessToken}&amp;openid={openid}&amp;lang=zh_CN"></entry>
 				<entry key="getkflistChannel" value="/customservice/getkflist?access_token={accessToken}"></entry>
 				<!-- 发送客服消息 -->
 				<entry key="sendCustomMessage" value="/message/custom/send?access_token={accessToken}"></entry>
+				<!-- 上传图文消息 -->
+				<entry key="uploadnews" value="/media/uploadnews?access_token={accessToken}"></entry>
+				<!-- 群发消息 https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token=ACCESS_TOKEN-->
+				<entry key="sendallMessage" value="/message/mass/sendall?access_token={accessToken}"></entry>
 			</map>
 		</property>
 	</bean>
-	
-	<int:router input-channel="wxStart"  ref="wxRequestRouter">
-	</int:router>
+	<!-- 微信访问 -->
+	<int:router input-channel="wxStart"  ref="wxRequestRouter"></int:router>
 	
 	<!-- 获取微信token -->
 	<int-http:outbound-gateway id="wx.getToken" http-method="POST" 
@@ -48,15 +55,21 @@
 		<int-http:uri-variable name="secret" expression="headers['secret']"/>
 	</int-http:outbound-gateway>
 	
-	<!--  -->
-	<int-http:outbound-gateway id="wx.getUrl" http-method-expression="headers['httpMethod']" expected-response-type-expression="@wxUrlBuilder.getRetType(headers,payload)"
+	<!-- 微信访问 -->
+	<int-http:outbound-gateway id="wxHttpAdapter" http-method-expression="headers['httpMethod']" expected-response-type-expression="@wxUrlBuilder.getRetType(headers,payload)"
 		request-factory="wxRequestFactory"  message-converters="wxJsonConverter"
 		charset="UTF-8" url-expression="@wxUrlBuilder.buildUrl(headers,payload)" 
 		request-channel="wxHttpChannel">
 		<int-http:uri-variable name="accessToken" expression="headers['access_token']"/>
 		<int-http:uri-variable name="openid" expression="headers['openid']"/>
 	</int-http:outbound-gateway>
-	<!-- 群发消息 -->
 	
+	<!-- 图片上传接口 https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token=ACCESS_TOKEN-->
+	<int-http:outbound-gateway id="wxHttpUpload" http-method="POST" expected-response-type-expression="@wxUrlBuilder.getRetType(headers,payload)"
+		request-factory="wxRequestFactory"  message-converters="wxUploadConverter"
+		charset="UTF-8" url="${wx.baseUrl}/media/upload?access_token={accessToken}&amp;type=image" 
+		request-channel="wxUploadChannel">
+		<int-http:uri-variable name="accessToken" expression="headers['access_token']"/>
+	</int-http:outbound-gateway>
 	
 </beans>

@@ -9,11 +9,13 @@ import java.net.URI;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * @author zhyi_12
  *
  */
+@Component("wxRequestFactory")
 public class WxRequestFactory extends HttpComponentsClientHttpRequestFactory {
 
 	@Override

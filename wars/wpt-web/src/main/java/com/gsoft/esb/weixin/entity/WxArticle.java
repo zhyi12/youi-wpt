@@ -3,11 +3,18 @@
  */
 package com.gsoft.esb.weixin.entity;
 
+import com.gsoft.framework.core.dataobj.Domain;
+
 /**
  * @author zhyi_12
  *
  */
-public class WxArticle {
+public class WxArticle implements Domain{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8945864532913302029L;
 
 	private String title;
 	

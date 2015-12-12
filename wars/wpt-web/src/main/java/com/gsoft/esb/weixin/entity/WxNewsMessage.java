@@ -3,12 +3,19 @@
  */
 package com.gsoft.esb.weixin.entity;
 
+import com.gsoft.esb.weixin.reqdata.WxData;
+
 /**
  * 图文消息
  * @author zhyi_12
  *
  */
 public class WxNewsMessage implements WxData{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3309740973192019481L;
 
 	private String touser;
 	

@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menus>
-	<menu id="010000" text="项目定制">
-		<menu id="010100" text="项目定制"  href="page/platform.codemng.codeProject/codeProject.html"></menu>
-		<menu id="010200" text="菜单模版定制"  href="page/platform.codemng.codeProject/codeProjectMenus.html"></menu>
-		<menu id="010103" text="模型设计"  href="page/platform.codepdm.pdm/pdm.html"></menu>
-		<menu id="010104" text="图标"  href="page/common/icon.html"></menu>
-		
+	<menu id="010000" text="微信服务号">
+		<menu id="010100" text="图片管理"  href="page/wx.wxmessage.wxupload/wxUpload.html"></menu>
+		<menu id="010200" text="消息管理"  href="page/wx.wxmessage.wxmessage/wxMessage.html"></menu>
+		<menu id="010103" text="群发管理"  href="page/wx.wxmessage.wxmass/wxMass.html"></menu>
+		<menu id="010104" text="粉丝管理"  href="page/wx.wxmember.wxMember/wxFollower.html"></menu>
 	</menu>
-	<menu id="030000" text="公共管理">
+	
+	<menu id="030000" text="微信信息">
+		<menu id="030100" text="公众号管理" href="page/wx.wxsubscrip.wxsubscription/wxSubscription.html"></menu>
+		<menu id="030200" text="微信用户" href="page/wx.wxmember.wxmember/wxMember.html"></menu>
+		
 		<menu id="030300" text="角色管理" href="page/security.fuc.role/role.html"></menu>
 		<menu id="030400" text="人员管理" href="page/security.agt.user/user.html"></menu>
 		<menu id="030500" text="系统菜单" href="page/security.fuc.menu/menu.html"></menu>
-		<menu id="030107" text="代码集管理" href="page/codemap/codemap.html"></menu>
-		<menu id="030108" text="系统日记" href="admin/transLog/index.html"></menu>
+		<menu id="030601" text="代码集管理" href="page/codemap/codemap.html"></menu>
 	</menu>
 	
-	<menu id="070000" text="调度管理">
-		<menu id="070101" text="调度配置"  href="page/scheduler.job/job.html"></menu>
-	</menu>
 </menus>

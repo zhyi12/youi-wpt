@@ -3,12 +3,19 @@
  */
 package com.gsoft.esb.weixin.entity;
 
+import com.gsoft.esb.weixin.reqdata.WxData;
+
 /**
  * @author zhyi_12
  *
  */
 public class WxTextMessage implements WxData{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6544183748082737668L;
+
 	private String touser;
 	
 	private String msgtype = "text";

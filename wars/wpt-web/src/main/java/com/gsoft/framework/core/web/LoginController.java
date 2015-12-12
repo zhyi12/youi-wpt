@@ -114,7 +114,7 @@ public class LoginController {
 			}
 		}
 		//非登录用户首页
-		return new ModelAndView("cms/index");
+		return new ModelAndView("login");
 	}
 	
 	/**

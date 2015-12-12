@@ -1,0 +1,158 @@
+20151210 19:12:14 INFO ModelFactory.parseModel(365) | 注册模型：wxSubscription-微信公众号用户 : wxsnm wxSubscription
+20151210 19:12:14 INFO ModelFactory.parseModel(365) | 注册模型：wxMember-微信会员 : wxmember wxMember
+20151210 19:12:14 INFO ModelFactory.parseModel(365) | 注册模型：wxMemberGroup-粉丝分组 : wxmember wxMemberGroup
+20151210 19:12:14 INFO ModelFactory.parseModel(365) | 注册模型：wxMass-群发管理 : wxmessage wxMass
+20151210 19:12:14 INFO ModelFactory.parseModel(365) | 注册模型：wxMassLog-群发记录 : wxmessage wxMassLog
+20151210 19:12:14 INFO ModelFactory.parseModel(365) | 注册模型：wxMessage-微信消息 : wxmessage wxMessage
+20151210 19:12:14 INFO ModelFactory.parseModel(365) | 注册模型：wxMedia-图文素材 : wxmessage wxMedia
+20151210 19:12:14 INFO ModelFactory.parseModel(365) | 注册模型：wxCustomMessage-客服消息记录 : wxmessage wxCustomMessage
+20151210 19:12:14 INFO GenerateFactory.<init>(25) | 构造生成工厂实例
+20151210 19:12:20 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/entity/WxMember.java
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/dao/WxMemberDao.java
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/dao/hibernate/WxMemberDaoHibernate.java
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/service/WxMemberManager.java
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/service/impl/WxMemberManagerImpl.java
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/test/java/com/gsoft/weixin/wxmember/service/WxMemberManagerTest.java
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/web/WxMemberData.java
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/webapp/WEB-INF/pages/wxmember/wxMember/wxMember.jsp
+20151210 19:12:21 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/entity/WxMemberGroup.java
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/dao/WxMemberGroupDao.java
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/dao/hibernate/WxMemberGroupDaoHibernate.java
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/service/WxMemberGroupManager.java
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/service/impl/WxMemberGroupManagerImpl.java
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/test/java/com/gsoft/weixin/wxmember/service/WxMemberGroupManagerTest.java
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmember/web/WxMemberGroupData.java
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/webapp/WEB-INF/pages/wxmember/wxMemberGroup/wxMemberGroup.jsp
+20151210 19:12:23 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:12:23 INFO GenerateEngine.generate(139) | 代码生成完成
+20151210 19:14:29 INFO ModelFactory.parseModel(365) | 注册模型：wxSubscription-微信公众号用户 : wxsubscrip wxSubscription
+20151210 19:14:29 INFO ModelFactory.parseModel(365) | 注册模型：wxMember-微信会员 : wxmember wxMember
+20151210 19:14:29 INFO ModelFactory.parseModel(365) | 注册模型：wxMemberGroup-粉丝分组 : wxmember wxMemberGroup
+20151210 19:14:29 INFO ModelFactory.parseModel(365) | 注册模型：wxMass-群发管理 : wxmessage wxMass
+20151210 19:14:29 INFO ModelFactory.parseModel(365) | 注册模型：wxMassLog-群发记录 : wxmessage wxMassLog
+20151210 19:14:29 INFO ModelFactory.parseModel(365) | 注册模型：wxMessage-微信消息 : wxmessage wxMessage
+20151210 19:14:29 INFO ModelFactory.parseModel(365) | 注册模型：wxMedia-图文素材 : wxmessage wxMedia
+20151210 19:14:29 INFO ModelFactory.parseModel(365) | 注册模型：wxCustomMessage-客服消息记录 : wxmessage wxCustomMessage
+20151210 19:14:29 INFO GenerateFactory.<init>(25) | 构造生成工厂实例
+20151210 19:14:34 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxsubscrip/entity/WxSubscription.java
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxsubscrip/dao/WxSubscriptionDao.java
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxsubscrip/dao/hibernate/WxSubscriptionDaoHibernate.java
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxsubscrip/service/WxSubscriptionManager.java
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxsubscrip/service/impl/WxSubscriptionManagerImpl.java
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/test/java/com/gsoft/weixin/wxsubscrip/service/WxSubscriptionManagerTest.java
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxsubscrip/web/WxSubscriptionData.java
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/webapp/WEB-INF/pages/wxsubscrip/wxSubscription/wxSubscription.jsp
+20151210 19:14:35 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:37 INFO GenerateEngine.generate(139) | 代码生成完成
+20151210 19:14:54 INFO ModelFactory.parseModel(365) | 注册模型：wxSubscription-微信公众号用户 : wxsubscrip wxSubscription
+20151210 19:14:54 INFO ModelFactory.parseModel(365) | 注册模型：wxMember-微信会员 : wxmember wxMember
+20151210 19:14:54 INFO ModelFactory.parseModel(365) | 注册模型：wxMemberGroup-粉丝分组 : wxmember wxMemberGroup
+20151210 19:14:54 INFO ModelFactory.parseModel(365) | 注册模型：wxMass-群发管理 : wxmessage wxMass
+20151210 19:14:54 INFO ModelFactory.parseModel(365) | 注册模型：wxMassLog-群发记录 : wxmessage wxMassLog
+20151210 19:14:54 INFO ModelFactory.parseModel(365) | 注册模型：wxMessage-微信消息 : wxmessage wxMessage
+20151210 19:14:54 INFO ModelFactory.parseModel(365) | 注册模型：wxMedia-图文素材 : wxmessage wxMedia
+20151210 19:14:54 INFO ModelFactory.parseModel(365) | 注册模型：wxCustomMessage-客服消息记录 : wxmessage wxCustomMessage
+20151210 19:14:54 INFO GenerateFactory.<init>(25) | 构造生成工厂实例
+20151210 19:14:57 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/entity/WxMass.java
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/WxMassDao.java
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/hibernate/WxMassDaoHibernate.java
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/WxMassManager.java
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/impl/WxMassManagerImpl.java
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/test/java/com/gsoft/weixin/wxmessage/service/WxMassManagerTest.java
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/web/WxMassData.java
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/webapp/WEB-INF/pages/wxmessage/wxMass/wxMass.jsp
+20151210 19:14:58 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/entity/WxMassLog.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/WxMassLogDao.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/hibernate/WxMassLogDaoHibernate.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/WxMassLogManager.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/impl/WxMassLogManagerImpl.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/test/java/com/gsoft/weixin/wxmessage/service/WxMassLogManagerTest.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/web/WxMassLogData.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/webapp/WEB-INF/pages/wxmessage/wxMassLog/wxMassLog.jsp
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/entity/WxMessage.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/WxMessageDao.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/hibernate/WxMessageDaoHibernate.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/WxMessageManager.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/impl/WxMessageManagerImpl.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/test/java/com/gsoft/weixin/wxmessage/service/WxMessageManagerTest.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/web/WxMessageData.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/webapp/WEB-INF/pages/wxmessage/wxMessage/wxMessage.jsp
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/entity/WxMedia.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/WxMediaDao.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/hibernate/WxMediaDaoHibernate.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/WxMediaManager.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/impl/WxMediaManagerImpl.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/test/java/com/gsoft/weixin/wxmessage/service/WxMediaManagerTest.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/web/WxMediaData.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/webapp/WEB-INF/pages/wxmessage/wxMedia/wxMedia.jsp
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/entity/WxCustomMessage.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/WxCustomMessageDao.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/dao/hibernate/WxCustomMessageDaoHibernate.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/WxCustomMessageManager.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/service/impl/WxCustomMessageManagerImpl.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/test/java/com/gsoft/weixin/wxmessage/service/WxCustomMessageManagerTest.java
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:00 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/java/com/gsoft/weixin/wxmessage/web/WxCustomMessageData.java
+20151210 19:15:01 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:01 INFO FreemarkerFactory.writerFile(70) | 新建文件：E://PROJECT//workspace-weixin//youi-wpt//wars//wpt-web/src/main/webapp/WEB-INF/pages/wxmessage/wxCustomMessage/wxCustomMessage.jsp
+20151210 19:15:01 INFO FreemarkerFactory.writerFile(85) | 代码生成成功！
+20151210 19:15:01 INFO GenerateEngine.generate(139) | 代码生成完成

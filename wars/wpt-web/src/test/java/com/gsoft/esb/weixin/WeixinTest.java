@@ -12,9 +12,13 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gsoft.esb.weixin.entity.WxMpnewsMessage;
 import com.gsoft.esb.weixin.entity.WxNews;
 import com.gsoft.esb.weixin.entity.WxNewsMessage;
-import com.gsoft.esb.weixin.entity.WxUser;
+import com.gsoft.esb.weixin.entity.WxUpdateGroupMember;
+import com.gsoft.esb.weixin.entity.WxUploadNews;
 import com.gsoft.framework.esb.EsbConstants;
 
 
@@ -36,14 +40,15 @@ public class WeixinTest {
 		headers.put("appid", "wxfdb3ad82dd67bbb3"); //测试账号
 		headers.put("secret", "36dbcfb432940dfd46ac81e144f4e698");
 		
-		headers.put(EsbConstants.HEADER_SERVICE, "sendCustomMessage");
-		//httpGet通道
+		headers.put(EsbConstants.HEADER_SERVICE, "sendallMessage");//sendallMessage
+		//http通道
 		headers.put(EsbConstants.HEADER_CHANNEL, "wxHttpChannel");
-		headers.put("httpMethod", "POST");
-		headers.put("access_token", "wq4uPofddKlDU4NqdKMBs-VFUt5BapUBB5cLRIWgpC27aGvZ7M1RcjJHqBqgd1uroSwzQkwkh-FrZoOi4pK2BUhDOQQhxumcO1u164zzHIYDXZiABAQKM");
 		
+		headers.put("httpMethod", "POST");
+		headers.put("access_token", "8OLM5HhZoXL9NyCDMrYgxU3Ssc7sT-CqDV-1WqWZxCVlioDbPnsfazkSbGr-DN2UpBAB0uIqq82Vqml68HNaJAs7SrGsy0FomCol7mRkMasMFGbAAARKL");
+			
 		//
-		headers.put("jsonClass", WxUser.class.getName());
+//		headers.put("jsonClass", WxUser.class.getName());
 		
 		//o34IKuHcgGRyO_yVHvFpkUJOLBsY 你爱花
 		//o34IKuF_Q6kY_aAcRcT1JMxgoSWM  小白
@@ -64,7 +69,34 @@ public class WeixinTest {
 				"http://120.24.14.236:8080/wpt-web/common/index.html", 
 				"http://h.hiphotos.baidu.com/baike/s%3D220/sign=a37d0ecaa5c27d1ea1263cc62bd4adaf/42a98226cffc1e17fdc0305f4b90f603738de965.jpg"));
 		
-		Message<?> res = messageTemplate.sendAndReceive("wxStart", MessageBuilder.withPayload(wxNewsMessage).copyHeaders(headers).build());
+		
+		//pg3V-i01YLcjD7rhPOWSR8p0ksKvisSBICBm2q9LTeq0nniatq0bi1PBNkDW0kx6
+		
+//		"thumb_media_id":"qI6_Ze_6PtV7svjolgs-rN6stStuHIjs9_DidOHaj0Q-mwvBelOXCFZiq2OsIU-p",
+//        "author":"xxx",
+//"title":"Happy Day",
+//"content_source_url":"www.qq.com",
+//"content":"content",
+//"digest":"digest",
+//        "show_cover_pic":"1"
+		
+		WxUploadNews wxUploadNews = new WxUploadNews();
+		String thumb_media_id = "pg3V-i01YLcjD7rhPOWSR8p0ksKvisSBICBm2q9LTeq0nniatq0bi1PBNkDW0kx6";
+		String content = "<a href=\"http://120.24.14.236:8080/wpt-web/common/index.html\"></a>";
+		String title = "我的红包";
+		wxUploadNews.addUploadArticle(thumb_media_id,title,content,"1");
+		
+		
+//		图文消息  media_id=3cHHbmIKwdMwKYnC7qkRsMVd9ZFKUTmTrpG9D2aVrVlHORuGsoq3qEF_aXql4bJ_
+		
+		WxMpnewsMessage wxMpnewsMessage = new WxMpnewsMessage("3cHHbmIKwdMwKYnC7qkRsMVd9ZFKUTmTrpG9D2aVrVlHORuGsoq3qEF_aXql4bJ_");
+		
+//		WxGroup wxGroup = new WxGroup("admin");
+		
+		WxUpdateGroupMember updateGroupMember = new WxUpdateGroupMember(touser,"100");
+		//group 100
+		
+		Message<?> res = messageTemplate.sendAndReceive("wxStart", MessageBuilder.withPayload(wxMpnewsMessage).copyHeaders(headers).build());
 		
 		System.out.println(res);
 	}
