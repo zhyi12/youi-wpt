@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.gsoft.esb.weixin.entity.WxApp;
 import com.gsoft.framework.core.dataobj.tree.TreeNode;
 import com.gsoft.framework.core.exception.BusException;
 import com.gsoft.framework.core.orm.Condition;
@@ -176,10 +177,21 @@ public class WxSubscriptionManagerImpl extends BaseManagerImpl implements WxSubs
 		return WxSubscription.class.isAssignableFrom(user.getClass());
 	}
 	
-	
 	@Override
 	public WxSubscription getLoginUser(String loginName) {
 		return wxSubscriptionDao.getObjectByUniqueProperty("loginName", loginName);
+	}
+	
+	@Override
+	public WxApp findAppByName(String name) {
+		WxSubscription wxSubscription = this.getLoginUser(name);
+		WxApp wxApp = null;
+		if(wxSubscription!=null){
+			wxApp = new WxApp();
+			wxApp.setAppid(wxSubscription.getAppId());
+			wxApp.setSecret(wxSubscription.getAppSecret());
+		}
+		return wxApp;
 	}
 	
 }

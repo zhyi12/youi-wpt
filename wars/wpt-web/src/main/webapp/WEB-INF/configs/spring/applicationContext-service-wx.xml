@@ -44,6 +44,11 @@
 		</property>
 	</bean>
 	
+	<!-- 微信信息接收 -->
+	<int:service-activator input-channel="weixinReceiver" ref="weixinReceiverFactory" method="receiver">
+		
+	</int:service-activator>
+	
 	<!-- 微信适配器 -->
 	<int:router input-channel="weixinAdapter"  ref="wxRequestRouter"></int:router>
 	

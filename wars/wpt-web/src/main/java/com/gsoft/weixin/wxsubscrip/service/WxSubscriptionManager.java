@@ -3,19 +3,19 @@
  */
 package com.gsoft.weixin.wxsubscrip.service;
 
-import java.util.List;
 import java.util.Collection;
+import java.util.List;
 
+import com.gsoft.esb.weixin.service.WxSubscriptionFinder;
 import com.gsoft.framework.core.exception.BusException;
 import com.gsoft.framework.core.orm.Condition;
 import com.gsoft.framework.core.orm.Order;
 import com.gsoft.framework.core.orm.Pager;
 import com.gsoft.framework.core.orm.PagerRecords;
 import com.gsoft.framework.core.service.BaseManager;
-
 import com.gsoft.weixin.wxsubscrip.entity.WxSubscription;
 
-public interface WxSubscriptionManager extends BaseManager{
+public interface WxSubscriptionManager extends BaseManager,WxSubscriptionFinder{
 
     /**
      * 查询列表

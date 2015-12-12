@@ -35,6 +35,17 @@
 		<int-http:header name="Content-Encoding" expression="'UTF-8'" />
 	</int-http:inbound-gateway>
 	
+	<!-- 微信发布 -->
+	<int-http:inbound-gateway request-channel="weixinReceiver" reply-timeout="12000" request-timeout="12000" 
+		name="/esb/weixin/{userId}/receiver.json" 
+		path="/esb/weixin/{userId}/receiver.json" supported-methods="GET,POST"
+		convert-exceptions="true" error-channel="exceptionChannel">
+		<!-- 服务号用户ID -->
+		<int-http:header name="userId" expression="#pathVariables.userId" />
+		<int-http:header name="Content-Type" expression="'application/json'" />
+		<int-http:header name="Content-Encoding" expression="'UTF-8'" />
+	</int-http:inbound-gateway>
+	
 	<bean class="org.springframework.integration.http.inbound.UriPathHandlerMapping" />
 	
 	<!-- 报表请求配置  -->
