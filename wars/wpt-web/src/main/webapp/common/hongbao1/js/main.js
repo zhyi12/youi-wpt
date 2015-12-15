@@ -44,7 +44,7 @@ $(function(){
         $(".main").fadeIn(300,function(){
             setTimeout(function(){
                 $('.longpage').show();
-                document.title='高校校长内部红包群（20）';
+                document.title='亿万富豪红包群（20）';
                 //setTimeout(function(){
                 //    motionObj['page'+1].play();
                 //},1000)
@@ -76,7 +76,7 @@ $(function(){
     }
 
     wxdata['title'] = _userName+'邀请你加入群聊';
-    wxdata['desc'] = _userName+'基金委主任杨卫邀请你加入国基2016群聊。'
+    wxdata['desc'] = _userName+'邀请你加入群聊亿万富豪红包群，进入查看详情。'
     wxdata['link'] = wxdata['link']+'?id='+_uid;
     setShare();  //微信分享
 
@@ -102,35 +102,20 @@ $(function(){
     //显示消息2
     function messages2(){
         dist = 0;
-        msgID=7;
+        msgID=4;
         clearInterval(_timer);
         _timer = setInterval(setMS2,1500)
     }
 
     function setMS1(){
-        if(msgID<=6){
-            if(msgID==6){
-            	TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-200 + 'px'}, ease: Linear.easeNone });
-                dist += -200;
-                receiveMoney();
-            } 
+        if(msgID<=3){
+            if(msgID==3) receiveMoney();
             $('#msg'+msgID).fadeIn();
             playmessagesSound();
 
-            if(msgID == 4){
+            if(msgID == 2){
                 clearInterval(_timer);
                 _timer = setInterval(setMS1,2500)
-                
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-180 + 'px'}, ease: Linear.easeNone });
-                dist += -180;
-            }
-            
-            if(msgID == 5){
-                clearInterval(_timer);
-                _timer = setInterval(setMS1,2500)
-                
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-180 + 'px'}, ease: Linear.easeNone });
-                dist += -180;
             }
         }else{
             clearInterval(_timer);
@@ -139,79 +124,32 @@ $(function(){
     }
 
     function setMS2(){
-        if(msgID<=21){
-            if(msgID==7){
+        if(msgID<=9){
+            if(msgID==5){
                 _btn1 = 2;
                 _btn2 = 2;
                 _btn3 = 2;
             }
 
+            if(msgID==5) {
+                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': -80 + 'px'}, ease: Linear.easeNone });
+                dist += -80;
+            }
+            if(msgID==6) {
+                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-160 + 'px'}, ease: Linear.easeNone });
+                dist += -160;
+            }
             if(msgID==7) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-660 + 'px'}, ease: Linear.easeNone });
-                dist += -660;
+                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-120 + 'px'}, ease: Linear.easeNone });
+                dist += -120;
             }
             if(msgID==8) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-120 + 'px'}, ease: Linear.easeNone });
-                dist += -120;
+                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-170 + 'px'}, ease: Linear.easeNone });
+                dist += -170;
             }
             if(msgID==9) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-190 + 'px'}, ease: Linear.easeNone });
-                dist += -190;
-            }
-            if(msgID==10) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-180 + 'px'}, ease: Linear.easeNone });
-                dist += -180;
-            }
-            if(msgID==11) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-120 + 'px'}, ease: Linear.easeNone });
-                dist += -180;
-            }
-            if(msgID==12) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-120 + 'px'}, ease: Linear.easeNone });
-                dist += -120;
-            }
-            if(msgID==13) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-120 + 'px'}, ease: Linear.easeNone });
-                dist += -120;
-            }
-            if(msgID==14) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-120 + 'px'}, ease: Linear.easeNone });
-                dist += -120;
-            }
-            
-            if(msgID==15) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-220 + 'px'}, ease: Linear.easeNone });
-                dist += -220;
-            }
-            
-            if(msgID==16) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-120 + 'px'}, ease: Linear.easeNone });
-                dist += -120;
-            }
-            
-            if(msgID==17) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-220 + 'px'}, ease: Linear.easeNone });
-                dist += -220;
-            }
-			
-			     if(msgID==18) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-120 + 'px'}, ease: Linear.easeNone });
-                dist += -120;
-            }
-            
-            if(msgID==19) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-220 + 'px'}, ease: Linear.easeNone });
-                dist += -220;
-            }
-            
-            if(msgID==20) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-120 + 'px'}, ease: Linear.easeNone });
-                dist += -120;
-            }
-            
-            if(msgID==21) {
-                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-400 + 'px'}, ease: Linear.easeNone });
-                dist += -400;
+                TweenMax.to($(".longpage>div").not($('.di')), .5, { css: {'top': dist-270 + 'px'}, ease: Linear.easeNone });
+                dist += -270;
             }
 
             $('#msg'+msgID).fadeIn();
@@ -226,13 +164,13 @@ $(function(){
     var _btn2 = 1;
     var _btn3 = 1;
 
-    //打开红包，#msg5需要改成#msg6
+    //打开红包
     var isTheFirstReceive = true;
     var ct = true;
     function receiveMoney(){
-        $('#redpick1, #msg6 .hand').one(touchstart, function(){
-            $('#msg6 .circle').css({'animation':'none','-webkit-animation':'none'});
-            $('#msg6 .circle,#msg6 .hand').fadeOut();
+        $('#redpick1, #msg3 .hand').one(touchstart, function(){
+            $('#msg3 .circle').css({'animation':'none','-webkit-animation':'none'});
+            $('#msg3 .circle,#msg3 .hand').fadeOut();
 			_mz_wx_view (2);//马云红包页
 			_mz_wx_custom(1); 
             if(isTheFirstReceive){

@@ -93,6 +93,7 @@ public class WxAccountAdapter implements IUserAdapter<WxUser,WxOAuthToken>{
 			Domain record = wxServiceFactory.getOAuthUserInfo(wxApp,code);
 			
 			Object openid = null;
+			
 			if(record instanceof Record){
 				openid = ((Record) record).get("openid");
 			}
