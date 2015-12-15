@@ -3,48 +3,63 @@
  */
 package com.gsoft.esb.weixin.entity;
 
-import com.gsoft.framework.core.dataobj.Domain;
+import java.util.List;
+
+import com.gsoft.framework.security.IUser;
+import com.gsoft.framework.security.PrincipalConfig;
 
 /**
  * @author zhyi_12
  *
  */
-public class WxUser implements Domain{
-	/**
-	 * 
+public class WxUser implements IUser {
+	
+	private String loginName;//登录名
+	
+	private String nickname;//显示名
+	
+	private List<String> roleIds;//系统角色
+	
+	private PrincipalConfig principalConfig;
+
+	/* (non-Javadoc)
+	 * @see com.gsoft.framework.security.AccountPrincipal#getPrincipalConfig()
 	 */
-	private static final long serialVersionUID = -2932743233473540047L;
-
-	private String openid;
-	
-	private String nickname;
-	
-	private int sex;
-	
-	private int subscribe;
-	
-	private String language;
-	
-	private String city;
-	
-	private String province;
-	
-	private String country;
-	
-	private String headimgurl;
-	
-	private String unionid;
-	
-	private String remark;
-	
-	private int groupid;
-
-	public String getOpenid() {
-		return openid;
+	@Override
+	public PrincipalConfig getPrincipalConfig() {
+		return principalConfig==null?new PrincipalConfig():principalConfig;
 	}
 
-	public void setOpenid(String openid) {
-		this.openid = openid;
+	public void setPrincipalConfig(PrincipalConfig principalConfig) {
+		this.principalConfig = principalConfig;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.gsoft.framework.security.IUser#getLoginName()
+	 */
+	@Override
+	public String getLoginName() {
+		return loginName;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.gsoft.framework.security.IUser#getPassword()
+	 */
+	@Override
+	public String getPassword() {
+		return "";
+	}
+
+	/* (non-Javadoc)
+	 * @see com.gsoft.framework.security.IUser#roleIds()
+	 */
+	@Override
+	public List<String> roleIds() {
+		return roleIds;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
 	}
 
 	public String getNickname() {
@@ -55,84 +70,13 @@ public class WxUser implements Domain{
 		this.nickname = nickname;
 	}
 
-	public int getSex() {
-		return sex;
+	@Override
+	public String toString() {
+		return nickname;
 	}
 
-	public void setSex(int sex) {
-		this.sex = sex;
-	}
-
-	public int getSubscribe() {
-		return subscribe;
-	}
-
-	public void setSubscribe(int subscribe) {
-		this.subscribe = subscribe;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getProvince() {
-		return province;
-	}
-
-	public void setProvince(String province) {
-		this.province = province;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public String getHeadimgurl() {
-		return headimgurl;
-	}
-
-	public void setHeadimgurl(String headimgurl) {
-		this.headimgurl = headimgurl;
-	}
-
-	public String getUnionid() {
-		return unionid;
-	}
-
-	public void setUnionid(String unionid) {
-		this.unionid = unionid;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-
-	public int getGroupid() {
-		return groupid;
-	}
-
-	public void setGroupid(int groupid) {
-		this.groupid = groupid;
+	public void setRoleIds(List<String> roleIds) {
+		this.roleIds = roleIds;
 	}
 	
 }

@@ -29,7 +29,7 @@ import com.gsoft.framework.context.annotation.Module;
 
 @Module(
 	name="weixin",
-	scanPackages={"service","data","reqdata"},
+	scanPackages={"service","data","reqdata","security"},
 	caption = "微信服务接口"
 )
 public class ModuleConfig{

@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,6 +46,9 @@ public class LoginController {
 	
 	@Autowired(required=false)
 	private UserService userService;
+	
+	@Value("${wx.baseUrl}")
+	private String wxBaseUrl;
 
 	/**
 	 * 登录页面
@@ -68,6 +73,29 @@ public class LoginController {
 		}
 		
 		return new ModelAndView(viewName);
+	}
+	
+	@RequestMapping("/weixin/{name}/login.html")
+	public ModelAndView wxLogin(
+			@PathVariable("name") String name,
+    		HttpServletRequest request,
+    		HttpServletResponse response){
+		//
+//		AccountPrincipal account = SecurityUtils.getAccount();
+		
+//		https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0e81c3bee622d60&redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+		
+//		String redirectOAuthUrl = wxBaseUrl+"/connect/oauth2/authorize";
+//		
+//		System.out.println(request.getRequestURL().toString());
+//		
+//		try {
+//			WebUtils.issueRedirect(request, response, redirectOAuthUrl);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+		//重定位
+		return new ModelAndView("index");
 	}
 	
 	/**
@@ -106,7 +134,7 @@ public class LoginController {
 		AccountPrincipal account = SecurityUtils.getAccount();
 		
 		if(account!=null){
-			if(account.roleIds().contains("ROLE_MEMBER")){
+			if(account.roleIds()!=null&&account.roleIds().contains("ROLE_MEMBER")){
 				//会员用户登录
 				return new ModelAndView("redirect:cms/account/index/"+account.getLoginName()+".html");
 			}else{

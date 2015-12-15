@@ -52,7 +52,7 @@ public class WxRequestRouter extends AbstractMessageRouter implements Applicatio
 	@Autowired
 	private ChannelResolver channelResolver;
 	
-	@Autowired
+	@Autowired(required=false)
 	private FileStoreManager fileStoreManager;
 	
 	@Autowired

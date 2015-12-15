@@ -3,28 +3,36 @@
  */
 package com.gsoft.weixin.wxmember.service.impl;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.gsoft.esb.weixin.entity.WxUser;
+import com.gsoft.esb.weixin.security.WxUserFinder;
 import com.gsoft.framework.core.exception.BusException;
 import com.gsoft.framework.core.orm.Condition;
 //import com.gsoft.framework.core.orm.ConditionFactory;
 import com.gsoft.framework.core.orm.Order;
 import com.gsoft.framework.core.orm.Pager;
 import com.gsoft.framework.core.orm.PagerRecords;
-import com.gsoft.framework.esb.annotation.*;
 import com.gsoft.framework.core.service.impl.BaseManagerImpl;
-import com.gsoft.weixin.wxmember.entity.WxMember;
+import com.gsoft.framework.esb.annotation.ConditionCollection;
+import com.gsoft.framework.esb.annotation.EsbServiceMapping;
+import com.gsoft.framework.esb.annotation.OrderCollection;
+import com.gsoft.framework.esb.annotation.PubCondition;
+import com.gsoft.framework.esb.annotation.ServiceParam;
+import com.gsoft.framework.security.PrincipalConfig;
 import com.gsoft.weixin.wxmember.dao.WxMemberDao;
+import com.gsoft.weixin.wxmember.entity.WxMember;
 import com.gsoft.weixin.wxmember.service.WxMemberManager;
 
 @Service("wxMemberManager")
 @Transactional
-public class WxMemberManagerImpl extends BaseManagerImpl implements WxMemberManager{
+public class WxMemberManagerImpl extends BaseManagerImpl implements WxMemberManager,WxUserFinder{
 	@Autowired
 	private WxMemberDao wxMemberDao;
 	
@@ -97,6 +105,30 @@ public class WxMemberManagerImpl extends BaseManagerImpl implements WxMemberMana
     
     public boolean exsitWxMember(String propertyName,Object value) throws BusException{
 		return wxMemberDao.exists(propertyName,value);
+	}
+    
+    
+	@Override
+	public WxUser findWxUserByOpenid(String openid) {
+		WxMember wxMember = wxMemberDao.getObjectByUniqueProperty("openid", openid);
+		//TODO 会员权限设置
+		WxUser wxUser = new WxUser();
+		
+		if(wxMember!=null){
+			//设置用户权限
+			List<String> roleIds = new ArrayList<String>();
+			roleIds.add("ROLE_USER");
+			
+			PrincipalConfig principalConfig = new PrincipalConfig(); 
+			//头像
+			principalConfig.put("headimgurl", wxMember.getHeadimgurl());
+			wxUser.setNickname(wxMember.getNickname());
+			wxUser.setLoginName(wxMember.getOpenid());
+			
+			wxUser.setRoleIds(roleIds);
+			wxUser.setPrincipalConfig(principalConfig);
+		}
+		return wxUser;
 	}
 
 }

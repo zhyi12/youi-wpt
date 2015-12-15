@@ -11,64 +11,79 @@
 	
 	<context:property-placeholder location="classpath*:config-weixin.properties"/>
 	
+	<context:component-scan base-package="com.gsoft.esb.weixin"></context:component-scan>
+	
 	<bean name="channelResolver" class="org.springframework.integration.support.channel.BeanFactoryChannelResolver"></bean>
 	
 	<bean class="org.springframework.integration.core.MessagingTemplate">
 		<property name="channelResolver" ref="channelResolver"></property>
 	</bean>
 	
-	<!-- test -->
-	<bean name="wxRequestRouter" class="com.gsoft.esb.weixin.service.impl.WxRequestRouter"></bean>
-	<bean name="wxTokenConverter" class="com.gsoft.esb.weixin.service.impl.WxTokenConverter"></bean>
-	<bean name="wxJsonConverter" class="com.gsoft.esb.weixin.service.impl.WxJsonConverter"></bean>
-	<bean name="wxRequestFactory" class="com.gsoft.esb.weixin.service.impl.WxRequestFactory"></bean>
-	<bean name="wxUploadConverter" class="com.gsoft.esb.weixin.service.impl.WxUploadConverter"></bean>
-	
+	<!-- 配置微信交易 -->
 	<bean name="wxUrlBuilder" class="com.gsoft.esb.weixin.service.impl.WxUrlBuilder">
-		<property name="httpUrls">
+		<property name="wxBaseUrl" value="${wx.baseUrl}"></property>
+		<property name="httpGetUrls">
 			<map>
+				<entry key="getUsers" value="/cgi-bin/user/get?access_token={accessToken}&amp;next_openid="></entry>
+				<entry key="getUserInfo" value="/cgi-bin/user/info?access_token={accessToken}&amp;openid={openid}&amp;lang=zh_CN"></entry>
+				<entry key="getkflistChannel" value="/cgi-bin/customservice/getkflist?access_token={accessToken}"></entry>
+				<entry key="getOAuth2Token" value="/sns/oauth2/access_token?appid={appid}&amp;secret={secret}&amp;code={code}&amp;grant_type=authorization_code"></entry>
+			</map>
+		</property>
+		
+		<property name="httpPostUrls">
+			<map>
+				<!-- 推送菜单 -->
+				<entry key="createMenu" value="/cgi-bin/menu/create?access_token={accessToken}"></entry>
 				<!-- 创建分组 -->
-				<entry key="createGroup" value="/groups/create?access_token={accessToken}"></entry>
+				<entry key="createGroup" value="/cgi-bin/groups/create?access_token={accessToken}"></entry>
 				<!-- 分配用户分组 -->
-				<entry key="updateGroupMember" value="/groups//members/update?access_token={accessToken}"></entry>
-				<!--  -->
-				<entry key="getUsers" value="/user/get?access_token={accessToken}&amp;next_openid="></entry>
-				<entry key="getUserInfo" value="/user/info?access_token={accessToken}&amp;openid={openid}&amp;lang=zh_CN"></entry>
-				<entry key="getkflistChannel" value="/customservice/getkflist?access_token={accessToken}"></entry>
+				<entry key="updateGroupMember" value="/cgi-bin/groups/members/update?access_token={accessToken}"></entry>
 				<!-- 发送客服消息 -->
-				<entry key="sendCustomMessage" value="/message/custom/send?access_token={accessToken}"></entry>
+				<entry key="sendCustomMessage" value="/cgi-bin/message/custom/send?access_token={accessToken}"></entry>
 				<!-- 上传图文消息 -->
-				<entry key="uploadnews" value="/media/uploadnews?access_token={accessToken}"></entry>
+				<entry key="uploadnews" value="/cgi-bin/media/uploadnews?access_token={accessToken}"></entry>
+				<!-- 预览图文消息 -->
+				<entry key="massPreview" value="/cgi-bin/message/mass/preview?access_token={accessToken}"></entry>
+				
 				<!-- 群发消息 https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token=ACCESS_TOKEN-->
-				<entry key="sendallMessage" value="/message/mass/sendall?access_token={accessToken}"></entry>
+				<entry key="sendallMessage" value="/cgi-bin/message/mass/sendall?access_token={accessToken}"></entry>
+				
+				<!-- 批量获取素材 -->
+				<entry key="batchgetMaterial" value="/cgi-bin/material/batchget_material?access_token={accessToken}"></entry>
+				
 			</map>
 		</property>
 	</bean>
-	<!-- 微信访问 -->
-	<int:router input-channel="wxStart"  ref="wxRequestRouter"></int:router>
+	
+	<!-- 微信适配器 -->
+	<int:router input-channel="weixinAdapter"  ref="wxRequestRouter"></int:router>
 	
 	<!-- 获取微信token -->
 	<int-http:outbound-gateway id="wx.getToken" http-method="POST" 
-		charset="UTF-8" url="${wx.baseUrl}/token?grant_type=client_credential&amp;appid={appid}&amp;secret={secret}" 
+		charset="UTF-8" url="${wx.baseUrl}/cgi-bin/token?grant_type=client_credential&amp;appid={appid}&amp;secret={secret}" 
 		request-channel="wxGetToken" message-converters="wxTokenConverter" expected-response-type="java.lang.String" >
 		<int-http:uri-variable name="appid" expression="headers['appid']"/>
 		<int-http:uri-variable name="secret" expression="headers['secret']"/>
 	</int-http:outbound-gateway>
 	
 	<!-- 微信访问 -->
-	<int-http:outbound-gateway id="wxHttpAdapter" http-method-expression="headers['httpMethod']" expected-response-type-expression="@wxUrlBuilder.getRetType(headers,payload)"
+	<int-http:outbound-gateway http-method-expression="@wxUrlBuilder.getHttpMethod(headers)" expected-response-type-expression="@wxUrlBuilder.getRetType(headers,payload)"
 		request-factory="wxRequestFactory"  message-converters="wxJsonConverter"
 		charset="UTF-8" url-expression="@wxUrlBuilder.buildUrl(headers,payload)" 
-		request-channel="wxHttpChannel">
+		request-channel="wxHttpServices">
 		<int-http:uri-variable name="accessToken" expression="headers['access_token']"/>
 		<int-http:uri-variable name="openid" expression="headers['openid']"/>
+		<int-http:uri-variable name="appid" expression="headers['appid']"/>
+		<int-http:uri-variable name="secret" expression="headers['secret']"/>
+		<int-http:uri-variable name="code" expression="headers['code']"/>
 	</int-http:outbound-gateway>
 	
 	<!-- 图片上传接口 https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token=ACCESS_TOKEN-->
-	<int-http:outbound-gateway id="wxHttpUpload" http-method="POST" expected-response-type-expression="@wxUrlBuilder.getRetType(headers,payload)"
+	<int-http:outbound-gateway http-method="POST" expected-response-type-expression="@wxUrlBuilder.getRetType(headers,payload)"
 		request-factory="wxRequestFactory"  message-converters="wxUploadConverter"
-		charset="UTF-8" url="${wx.baseUrl}/media/upload?access_token={accessToken}&amp;type=image" 
-		request-channel="wxUploadChannel">
+		charset="UTF-8" url="${wx.baseUrl}/cgi-bin/media/upload?access_token={accessToken}&amp;type=image" 
+		request-channel="wxUploadServices">
 		<int-http:uri-variable name="accessToken" expression="headers['access_token']"/>
 	</int-http:outbound-gateway>
 	

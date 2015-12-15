@@ -29,7 +29,12 @@
 	
 	<!-- shiro web 安全管理类 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-		<property name="realm" ref="realm"></property>
+		<property name="realms">
+			<list>
+				<ref bean="wxOAuthRealm"/>
+				<ref bean="realm"/>
+			</list>
+		</property>
 		<property name="cacheManager" ref="cacheManager"></property>
 	</bean>
 	
@@ -38,6 +43,7 @@
 		<property name="securityManager" ref="securityManager" />
 		<property name="filters">
 			<map>
+				<entry key="wxOAuth" value-ref="wxOAuth"/>
 				<entry key="authc" value-ref="authc"/>
 			</map>
 		</property>
@@ -45,6 +51,7 @@
 		<property name="filterChainDefinitions">
 			<value>
 				${login.url} = authc
+				/weixin/*/login.html= wxOAuth
 				/logout.html = anon
 				/index.html = anon
 				/common/** = anon
