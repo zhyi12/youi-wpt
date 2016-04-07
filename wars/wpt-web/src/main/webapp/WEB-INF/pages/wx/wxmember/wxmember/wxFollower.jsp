@@ -12,6 +12,9 @@
 		<youi:fieldLayout>
 			<youi:fieldText property="nickname" operator="LIKE" caption="NICKNAME"/>
 			<youi:fieldText property="sex" caption="SEX"/>
+			<youi:fieldCalendar property="cale" format="yyyy-MM-dd" textFormat="yyyy-MM-dd" caption="日期"></youi:fieldCalendar>
+			<youi:fieldCalendar property="cale1" format="yyyy-MM-dd" textFormat="yyyy-MM-dd" caption="日期"></youi:fieldCalendar>
+					
 		</youi:fieldLayout>
 		
 		<youi:gridCol width="20%" property="openid" caption="openid"></youi:gridCol>

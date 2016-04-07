@@ -10,7 +10,6 @@
 <youi:script src="/scripts/3.0/lib/bootstrap.min.js"/>
 <youi:script src="/scripts/upload/swfupload.js"/>
 <youi:script src="/scripts/3.0/lib/youi.min.js"/>
-<youi:script src="/scripts/3.0/youi/field/field.spinner.js"/>
 
 <youi:style href="/styles/3.0/bootstrap.css"/>
 

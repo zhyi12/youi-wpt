@@ -43,8 +43,8 @@
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<nexus.root>http://220.249.113.11/nexus</nexus.root>
-		<gsoft.version>1.0.3.RELEASE</gsoft.version>	
+		<nexus.root>http://120.25.101.206:8081/nexus</nexus.root>
+		<gsoft.version>1.0.4-SNAPSHOT</gsoft.version>	
 	</properties>
 	<!-- 本模块使用的包 -->
 	<dependencies>
@@ -76,6 +76,13 @@
 			<scope>compile</scope>
 		</dependency>
 		
+		<dependency>
+			<groupId>com.gsoft.framework</groupId>
+			<artifactId>gsoft-framework-giui</artifactId>
+			<version>${gsoft.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
 		<!--公共web页面文件  -->
 		<dependency>
 			<groupId>com.gsoft.framework</groupId>
@@ -94,7 +101,7 @@
 		
 		<dependency>
 			<groupId>com.gsoft.decorator</groupId>
-			<artifactId>gsoft-decorator-cms</artifactId>
+			<artifactId>gsoft-decorator-giui</artifactId>
 			<version>${gsoft.version}</version>
 			<scope>compile</scope>
 		</dependency>
@@ -137,6 +144,18 @@
 			<version>${gsoft.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.gsoft.esb</groupId> 
+	    	<artifactId>gsoft-esb-bus</artifactId>
+	    	<version>1.0.4-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.gsoft.esb</groupId> 
+	    	<artifactId>gsoft-esb-buscfg</artifactId>
+	    	<version>1.0.4-SNAPSHOT</version>
+		</dependency>
 
 		<!-- http协议 -->
 		<dependency>
@@ -152,6 +171,44 @@
 			<version>${gsoft.version}</version>
 		</dependency>
 		
+		
+		<!-- 基于http协议  微信适配器-->
+		<dependency>
+			<groupId>com.gsoft.esb</groupId>
+			<artifactId>gsoft-esb-weixin</artifactId>
+			<version>${gsoft.version}</version>
+		</dependency>
+		
+		<!-- 会员体系 -->
+		<dependency>
+			<groupId>com.gsoft.member</groupId>
+			<artifactId>gsoft-member-infoImpl</artifactId>
+			<version>1.0.4-SNAPSHOT</version>
+		</dependency>
+		<!-- 微信粉丝 -->
+		<dependency>
+			<groupId>com.gsoft.weixin</groupId>
+			<artifactId>gsoft-weixin-wxmemberImpl</artifactId>
+			<version>1.0.4-SNAPSHOT</version>
+		</dependency>
+		<!-- 微信应用 -->
+		<dependency>
+			<groupId>com.gsoft.weixin</groupId>
+			<artifactId>gsoft-weixin-wxappImpl</artifactId>
+			<version>1.0.4-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.gsoft.weixin</groupId>
+			<artifactId>gsoft-weixin-wxsubscripImpl</artifactId>
+			<version>1.0.4-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.gsoft.weixin</groupId>
+			<artifactId>gsoft-weixin-wxsubscripImpl</artifactId>
+			<version>1.0.4-SNAPSHOT</version>
+		</dependency>
 		
 		<dependency>
 			<groupId>mysql</groupId>
@@ -215,7 +272,7 @@
 				
 				<configuration>
 					<uriEncoding>UTF-8</uriEncoding>
-					<port>8088</port>
+					<port>80</port>
 					<path>/wtp-web</path>
 				</configuration>
 			</plugin>

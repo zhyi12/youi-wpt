@@ -16,13 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gsoft.esb.weixin.entity.WxUser;
 import com.gsoft.framework.core.Constants;
 import com.gsoft.framework.core.dataobj.Record;
 import com.gsoft.framework.core.dataobj.tree.HtmlTreeNode;
@@ -47,9 +47,6 @@ public class LoginController {
 	@Autowired(required=false)
 	private UserService userService;
 	
-	@Value("${wx.baseUrl}")
-	private String wxBaseUrl;
-
 	/**
 	 * 登录页面
 	 * @param request
@@ -63,6 +60,7 @@ public class LoginController {
     		HttpServletResponse response){
 		
 		String userAdapterName = WebUtils.getCleanParam(request, "userAdapter");
+		String username = WebUtils.getCleanParam(request, "username");
 		
 		IUserAdapter userAdapter = userService.getUserAdapter(userAdapterName);
 		
@@ -72,7 +70,16 @@ public class LoginController {
 			viewName +=("-"+userAdapterName);
 		}
 		
-		return new ModelAndView(viewName);
+		response.setHeader("X-LOGIN", "true");
+		
+		AccountPrincipal account = SecurityUtils.getAccount();
+		if(account!=null){
+			return new ModelAndView("redirect:index.html");
+		}
+		
+		ModelAndView model = new ModelAndView(viewName);
+		model.addObject("username", username);
+		return model;
 	}
 	
 	@RequestMapping("/weixin/{name}/login.html")
@@ -80,22 +87,8 @@ public class LoginController {
 			@PathVariable("name") String name,
     		HttpServletRequest request,
     		HttpServletResponse response){
-		//
-//		AccountPrincipal account = SecurityUtils.getAccount();
-		
-//		https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0e81c3bee622d60&redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
-		
-//		String redirectOAuthUrl = wxBaseUrl+"/connect/oauth2/authorize";
-//		
-//		System.out.println(request.getRequestURL().toString());
-//		
-//		try {
-//			WebUtils.issueRedirect(request, response, redirectOAuthUrl);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		//重定位
-		return new ModelAndView("index");
+		//微信登录页面
+		return new ModelAndView("wxLogin");
 	}
 	
 	/**
@@ -120,7 +113,7 @@ public class LoginController {
 	}
 	
 	/**
-	 * 首页，登录成功跳转页面
+	 * 登录成功跳转页面
 	 * @param request
 	 * @param response
 	 * @return
@@ -130,13 +123,20 @@ public class LoginController {
     		HttpServletRequest request,
     		HttpServletResponse response){
 		
-		//
+		//获取登录账户信息
 		AccountPrincipal account = SecurityUtils.getAccount();
 		
-		if(account!=null){
-			if(account.roleIds()!=null&&account.roleIds().contains("ROLE_MEMBER")){
-				//会员用户登录
-				return new ModelAndView("redirect:cms/account/index/"+account.getLoginName()+".html");
+		if(account instanceof WxUser){
+			//微信用户登录
+			String subscriptionId = account.getPrincipalConfig().get("subscriptionId");
+			return new ModelAndView("redirect:weixin/"+subscriptionId+"/index.html");
+		}else if(account!=null){
+			if(account.roleIds()!=null&&account.roleIds().contains("ROLE_VTUI")){
+				//用户登录
+				return new ModelAndView("redirect:member/vtui/index.html#p:page/vtui/welcome.html");
+			}else if(account.roleIds()!=null&&account.roleIds().contains("ROLE_VCHUANG")){
+				//捧场用户登录
+				return new ModelAndView("redirect:member/vchuang/index.html#p:page/vchuang/welcome.html");
 			}else{
 				return new ModelAndView("index");
 			}
@@ -146,7 +146,36 @@ public class LoginController {
 	}
 	
 	/**
-	 * 欢迎页
+	 * 无登录home页面
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/home.html")
+	public ModelAndView home(
+    		HttpServletRequest request,
+    		HttpServletResponse response){
+		//微信登录页面
+		return new ModelAndView("home/index");
+	}
+	
+	/**
+	 * 注册页面
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/register.html")
+	public ModelAndView register(
+    		HttpServletRequest request,
+    		HttpServletResponse response){
+		//微信登录页面
+		//生成页面唯一编码
+		return new ModelAndView("home/register");
+	}
+	
+	/**
+	 * 根据菜单名称或者编码模糊查找菜单
 	 * @param request
 	 * @param response
 	 * @return

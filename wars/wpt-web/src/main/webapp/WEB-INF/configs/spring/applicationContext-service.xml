@@ -5,25 +5,17 @@
 		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
 		http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file-2.2.xsd
 		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http-2.2.xsd
-		http://www.springframework.org/schema/integration/rmi http://www.springframework.org/schema/integration/rmi/spring-integration-rmi-2.2.xsd
-		http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws-2.2.xsd
-		http://www.springframework.org/schema/integration/amqp http://www.springframework.org/schema/integration/amqp/spring-integration-amqp-2.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
-		http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.2.xsd
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd"
 	xmlns:int="http://www.springframework.org/schema/integration"
 	xmlns:int-file="http://www.springframework.org/schema/integration/file"
 	xmlns:int-http="http://www.springframework.org/schema/integration/http"
 	xmlns:int-mail="http://www.springframework.org/schema/integration/mail"
-	xmlns:int-rmi="http://www.springframework.org/schema/integration/rmi"
-	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
-	xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
 	xmlns:task="http://www.springframework.org/schema/task">
 	
 	<!--esb前端模式的 web导出配置 -->
-	<context:component-scan base-package="com.gsoft.framework.core.web.export"/>
+	<context:component-scan base-package="com.gsoft.framework.core.web"/>
 	
 	<!-- 配置标签中的URL类型的编码到实际路径的映射 -->
 	<bean class="com.gsoft.framework.ui.url.TagUrlTransformerImpl"/>
@@ -31,7 +23,7 @@
 	<!-- 业务日志 -->
 	<bean class="com.gsoft.framework.core.log.DefaultTransLogService"></bean>
 	
-	<!-- 字典服务工厂-->
+	<!-- 代码集配置-->
 	<bean class="com.gsoft.framework.taglib.convert.ConvertProviderFactory">
 		<property name="cacheManager" ref="cacheManager"></property>
 		<property name="providers">
@@ -51,8 +43,16 @@
 	<int:channel id="web"></int:channel>
 	<int:service-activator input-channel="web" ref="esbServiceFactory" method="exchange"/>
 	
+	<!-- 工作流接口通道-->
+<!-- 	<int:channel id="workflow"></int:channel> -->
+<!-- 	<int:service-activator input-channel="workflow" ref="workflowServiceFactory" method="exchange"/> -->
 	
-	<!-- 微信服务适配器 -->
-	<import resource="applicationContext-service-wx.xml"/>
+	<!-- 总线服务配置(配置在总线web服务上) -->
+	
+	<int:service-activator input-channel="busChannel" ref="busManager" method="doService"/>
+	<!-- 总线服务发布 end -->
+	
+	<!-- 接收http上传文件处理 -->
+	<int:service-activator input-channel="fileReceiveChannel" ref="httpFileReceiver" method="receiveFile"></int:service-activator>
 	
 </beans>

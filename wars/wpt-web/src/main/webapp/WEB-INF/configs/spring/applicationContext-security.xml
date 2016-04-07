@@ -24,9 +24,23 @@
 	<bean id="authc" class="com.gsoft.framework.security.DefaultFormAuthenticationFilter">
 		<!-- 启用校验码控制 -->
 		<property name="vcodeCheck" value="false"></property>
-		<property name="authParam" value="projectId"></property>
 	</bean>
 	
+	<!-- 会员页面过滤器 -->
+	<bean id="authcmember" class="com.gsoft.member.base.security.MemberFormAuthenticationFilter">
+		<!-- 启用校验码控制 -->
+		<property name="vcodeCheck" value="false"></property>
+	</bean>
+	
+	<!-- 配置了两个以上的realms需要配置authorizer -->
+	<bean id="authenticator" class="com.gsoft.framework.security.DefaultModularRealmAuthenticator">
+		<property name="realms">
+			<list>
+				<ref bean="wxOAuthRealm"/>
+				<ref bean="realm"/>
+			</list>
+		</property>
+	</bean>
 	<!-- shiro web 安全管理类 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="realms">
@@ -36,6 +50,7 @@
 			</list>
 		</property>
 		<property name="cacheManager" ref="cacheManager"></property>
+		<property name="authenticator" ref="authenticator"></property>
 	</bean>
 	
 	<!-- 过滤器 -->
@@ -45,19 +60,25 @@
 			<map>
 				<entry key="wxOAuth" value-ref="wxOAuth"/>
 				<entry key="authc" value-ref="authc"/>
+				<entry key="authcmember" value-ref="authcmember"></entry>
 			</map>
 		</property>
 		<!-- other properties as necessary ... -->
 		<property name="filterChainDefinitions">
 			<value>
 				${login.url} = authc
-				/weixin/*/login.html= wxOAuth
 				/logout.html = anon
-				/index.html = anon
+				/home.html = anon
+				/register.html = anon
 				/common/** = anon
-				/auth/** = anon
 				/esb/** = anon
-				/** = authc
+				/portal/** = anon
+				/index.html = authc
+				/page/** = authc
+				/weixin/*/login.html= wxOAuth
+				${wx.login.failureUrl}=anon
+				/member/*/logout.html=anon
+				/member/**=authcmember
 	        </value>
 		</property>
 		<!--  实现 com.gsoft.framework.core.security.UrlResourceManager接口，

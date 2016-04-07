@@ -33,13 +33,13 @@
 	<!-- 模块扫描,扫描规则 classpath*:/**/ModuleConfig.class -->
   	<gsoft:module-scan/>
   	
-	 <!-- 页面javascript脚本生成 -->
+	<!-- 页面javascript脚本生成 -->
     <bean name="pageScriptFactory" class="com.gsoft.framework.core.web.PageScriptFactory">
     	<property name="cacheManager" ref="cacheManager"></property>
     </bean>
     
 	<!-- 缓存管理 -->
-	<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+	<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager" init-method="init">
 		<property name="cacheManagerConfigFile" value="classpath:encache-gsoft.xml"/>
 	</bean>
 	<!-- 国际化资源配置 -->

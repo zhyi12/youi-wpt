@@ -1,0 +1,500 @@
+/*from mui*/
+@font-face {
+    font-family: Muiicons;
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/mui.ttf') format('truetype');
+}
+
+.youi-icon{
+	font-family: Muiicons;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.youi-icon.y-home:before{
+	content: "\e500";
+}
+.youi-icon.y-msg:before{
+	content: "\e201";
+}
+
+.youi-icon.y-tel:before{
+	content: "\e100";
+}
+
+.youi-icon.y-config:before{
+	content: "\e502";
+}
+
+@media (max-width: 767px) {
+  .visible-xs {
+    display: block !important;
+  }
+  table.visible-xs {
+    display: table !important;
+  }
+  tr.visible-xs {
+    display: table-row !important;
+  }
+  th.visible-xs,
+  td.visible-xs {
+    display: table-cell !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-block {
+    display: block !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline {
+    display: inline !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm {
+    display: block !important;
+  }
+  table.visible-sm {
+    display: table !important;
+  }
+  tr.visible-sm {
+    display: table-row !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-block {
+    display: block !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md {
+    display: block !important;
+  }
+  table.visible-md {
+    display: table !important;
+  }
+  tr.visible-md {
+    display: table-row !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-block {
+    display: block !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg {
+    display: block !important;
+  }
+  table.visible-lg {
+    display: table !important;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg-block {
+    display: block !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 14px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  background-color: #fdfdfd;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  padding:0px;
+  margin:0px;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+a,
+.a {
+  color: #1385e5;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover,
+.a:hover,
+a:focus,
+.a:focus {
+  color: #3c9def;
+  text-decoration: underline;
+}
+img {
+  vertical-align: middle;
+}
+hr {
+  border: 0;
+  border-top: 1px solid rgba(51, 51, 51, 0.1);
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+table {
+  border-collapse: collapse;
+}
+.Table {
+  text-align: left;
+  width: 100%;
+}
+
+
+/*************************page view**************************/
+.page-view .page-view-item{
+	display:none;
+	border:none;
+}
+
+.page-view .page-view-item.active{
+	display:block;
+}
+
+/*************************field input**************************/
+
+.youi-field .textInput{
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    background-color: white;
+    background-image: none;
+    border-radius: 0.3em;
+    border: 1px solid #ccc;
+    border-top-color: #c2c2c2;
+    border-bottom-color: #d6d6d6;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    color: #333;
+    display: block;
+    line-height: 1.2;
+    height: 2.4em;
+    padding: 0 0.75em;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.youi-field .textInput:hover {
+    border-color: #b3b3b3;
+    outline: 0;
+}
+
+.youi-btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 0.3em;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    line-height: 2.3em;
+    height: 2.4em;
+    margin-bottom: 0;
+    overflow: hidden;
+    padding: 0 1em;
+    text-align: center;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    -webkit-appearance: none;
+}
+
+.youi-btn.btn-default {
+    background-image: -webkit-linear-gradient(top, #fafafa 0%, #eaeaea 100%);
+    background-image: -o-linear-gradient(top, #fafafa 0%, #eaeaea 100%);
+    background-image: linear-gradient(to bottom, #fafafa 0%, #eaeaea 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffafafa', endColorstr='#ffeaeaea', GradientType=0);
+    border: 1px solid #ccc;
+    border-color: #ccc #bdbdbd #adadad;
+    color: #333;
+    text-shadow: 0 1px 0 white;
+}
+
+.btn-group .youi-btn{
+	border-radius: 0;
+	margin-left:-1px;
+}
+
+.btn-group .youi-btn:first-child {
+    margin-left: 0;
+    border-bottom-left-radius: 0.3em;
+    border-top-left-radius: 0.3em;
+}
+
+.btn-group .youi-btn:last-child {
+    border-bottom-right-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+}
+
+
+.youi-field.fieldText{
+	display: flex;
+    margin-bottom: 1em;
+}
+
+.youi-field.fieldText .textInput,
+.youi-field.fieldText .youi-btn{
+	border-radius: 0;
+}
+
+.youi-field .field-part:first-child {
+    margin-left: 0;
+}
+
+.youi-field .field-part:last-child .youi-btn{
+	border-bottom-right-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+}
+
+.youi-field .field-part{
+	margin-left: -1px;
+}
+
+.youi-field .field-part-grow{
+	-webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    /* flex: 1 1 auto; */
+}
+
+
+/********************tabs ×é¼þ*********************/
+.youi-tabs{
+	
+}
+
+.youi-tabs .header{
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 0;
+    background-color: #f7f7f7;
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0,.85);
+    box-shadow: 0 0 1px rgba(0,0,0,.85);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.youi-tabs nav.tabs-header{
+	bottom: 0;
+    display: table;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    table-layout: fixed;
+    border-top: 0;
+    border-bottom: 0;
+    -webkit-touch-callout: none;
+}
+
+.youi-tabs nav.tabs-header a:focus{
+	outline: -webkit-focus-ring-color auto 1px;
+	outline-color:transparent;
+}
+
+.youi-tabs nav.tabs-header .youi-tabitem{
+	display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;
+}
+
+.youi-tabs nav.tabs-header .youi-tabitem.active{
+	color: blue;
+}
+
+.youi-tabs nav.tabs-header .youi-tabitem .title{
+	font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.youi-tabs .youi-tabpanel{
+	display:none;
+}
+
+.youi-tabs .youi-tabpanel.active{
+	display:block;
+}
+
+
+.youi-tabs .tabs-content{
+	padding-bottom:50px;
+}
+
+/***************************listView****************************/
+
+
+.youi-list-view{
+	margin:20px 0px 0px 0px;
+	padding:1px;
+}
+
+
+.youi-list-view .list-view-item:before{
+	
+}
+
+.youi-list-view .list-view-item{
+	position: relative;
+    overflow: hidden;
+    padding: 11px 15px;
+    -webkit-touch-callout: none;
+    background:white;
+}
+.youi-list-view .list-view-item:after{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 15px;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+
+.youi-list-view .list-view-item >a{
+	position: relative;
+    display: block;
+    overflow: hidden;
+    margin: -11px -15px;
+    padding: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: inherit;
+}
+
+.youi-list-view .list-view-item >a:after {
+    font-family: Muiicons;
+    font-size: inherit;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-decoration: none;
+    color: #bbb;
+    -webkit-font-smoothing: antialiased;
+    
+    right: 15px;
+    content: '\e583';
+}
+
+.youi-list-view .list-view-item >a>.desc{
+	float:right;
+	padding-right:16px;
+	color:silver;
+}
+
+.youi-list-view .list-view-item .youi-icon{
+	font-size:18px;
+}
+

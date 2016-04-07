@@ -1,0 +1,199 @@
+@CHARSET "UTF-8";
+
+body{
+	overflow:hidden;
+}
+
+.page-container {
+   overflow-y: auto;
+   overflow-x:hidden;
+   float: left;
+   width: 100%;
+}
+
+.layout-panel>.page-nav{
+	display:none;
+}
+
+.sys-title{
+	color:white;
+	font-weight:bold;
+}
+
+.sys-logo{
+	width: 60px;
+ 	height: 50px;
+	background:url(../../styles/images/logo.png) no-repeat 5px 8px;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-north {
+  background: #09C;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #09C), color-stop(1, #09C));
+  background: -ms-linear-gradient(bottom, #4d5b76, #6f80a1);
+  background: -moz-linear-gradient(center bottom, #4d5b76 0%, #6f80a1 100%);
+  background: -o-linear-gradient(bottom, #4d5b76, #6f80a1);
+  filter: progid:dximagetransform.microsoft.gradient(startColorStr='#e3e3e3', EndColorStr='#ffffff');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#6f80a1',EndColorStr='#4d5b76')";
+  height:50px;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-north .nav{
+	padding-right:30px;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-north .nav > li > a{
+	color:white;
+	padding:15px 10px;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-north .nav > li > a:hover,
+.youi-bootstrapLayout .layout-panel.panel-north .nav > li > a:focus{
+	background-color: transparent;
+	color:white;
+}
+
+.youi-bootstrapLayout .layout-md{
+	position:relative;
+	min-height:450px;
+}
+.youi-bootstrapLayout .layout-md .layout-panel.panel-west{
+	position:absolute;
+	top:0px;
+	left:0px;
+	background:#1F262D;
+}
+
+.youi-bootstrapLayout .layout-md .tab-content{
+	background:white;
+	padding:5px 10px;
+	position:relative;
+	overflow-y: auto;
+	overflow-x:hidden;
+	border-radius:0px 5px 5px 5px;
+}
+
+.youi-bootstrapLayout .layout-md .tab-content.tab-sys-content{
+	border:none;
+	
+}
+
+.youi-bootstrapLayout .youi-page-footer{
+	color:black;
+	padding:2px;
+	margin:0px;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-west .page-menu-toggle{
+	line-height:30px;
+	background: #394555;
+	color:white;
+	text-align:right;
+	cursor:pointer;
+	padding: 8px;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-west .page-menu-toggle:hover{
+	color:blue;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-center{
+	background:#eaedf1;
+}
+
+.youi-page>.tab-content{
+	border-left: 1px solid #eaedf1;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-west.closed{
+	width:20px!important;
+	overflow:hidden;
+	border-right:0px;
+	background-color:#f9f9f9;
+}
+
+
+.youi-bootstrapLayout .layout-panel.panel-west.closed .youi-menu{
+	display:none;
+}
+
+
+.youi-bootstrapLayout .layout-panel.panel-west.closed .page-menu-toggle .page-menu-toggle-bg{
+	border-bottom: 9px solid transparent;
+    border-left: 20px solid #A3A5B3;
+    border-top: 9px solid transparent;
+    border-right:none;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-west .page-menu-toggle .icon-indent-right{
+	display:none;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-west.closed .page-menu-toggle .icon-indent-right{
+	display:inline;
+}
+
+.youi-bootstrapLayout .layout-panel.panel-west.closed .page-menu-toggle .icon-indent-left{
+	display:none;
+}
+
+.youi-page-header{
+	height:72px;
+	color:white;
+}
+
+.youi-page-header a,
+.youi-page-header a:focus,
+.youi-page-header a:active,
+.youi-page-header a:hover{
+	color:white;
+}
+
+.page-container{
+	padding:5px 12px;
+}
+
+.disabled{
+	color:silver!important;
+	background-color:#fafafa!important;
+	cursor: default!important;
+}
+
+.page-nav{
+	padding:5px;
+}
+
+.page-nav .page-goback{
+	display:none;
+}
+
+.page-message-alert,.page-message-alert:active,.page-message-alert:hover{
+	border:none;
+	outline:none!important;
+	line-height:1px;
+	font-size:1px;
+	height:1px;
+	padding:0px!important;
+}
+
+.page-alert-header{
+	padding:5px 3px;
+	background-color: #f5f5f5;
+	color:red;
+}
+
+.page-alert-header .title{
+	padding-left:5px;
+}
+
+/* icon */
+.youi-icon.icon-submit:before{
+	content: "\f058";
+}
+
+.youi-icon.icon-reset:before{
+	content: "\f021";
+}
+
+.youi-icon.icon-back:before{
+	content: "\f112";
+}
