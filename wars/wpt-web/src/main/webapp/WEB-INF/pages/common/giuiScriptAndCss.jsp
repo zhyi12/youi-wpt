@@ -1,7 +1,7 @@
 <%@ taglib prefix="youi" uri="http://www.gisoft.cn/youi3" %>
 
 <link type="image/x-icon" rel="shortcut icon" href="<%=request.getContextPath()%>/favicon.ico" />	
-<link rel="Shortcut Icon" href="favicon.ico" />
+<link rel="Shortcut Icon" href="<%=request.getContextPath()%>/favicon.ico" />
 
 <youi:script src="/scripts/3.0/lib/jquery.js"/>
 <youi:script src="/scripts/3.0/lib/jquery-ui.min.js"/>

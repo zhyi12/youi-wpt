@@ -23,7 +23,7 @@
 			<li class="menu-item">
 				<span class="tree-span treeNode menu-item group last">
 					<span class="youi-icon icon-file"></span>
-					<a class="tree-a page-link" href="member/vchuang/wxmessage/media/${subscriptionId}.html">素材库</a>
+					<a class="tree-a page-link" href="member/vchuang/wxarticle/articles/${subscriptionId}.html">微信文章</a>
 				</span>
 			</li>
 			<li class="menu-item">
@@ -57,6 +57,7 @@
 			</li>
 		</ul>
 	</div>
+	
 	
 	<h1 id="700300" class="menu-bar-title">
 		<div class="icon-text">

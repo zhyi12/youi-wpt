@@ -7,6 +7,15 @@
 			<giui:fieldText 
 				notNull="true" property="subscriptionCaption" caption="应用名称"/>
 			<giui:fieldText notNull="true" property="appId" caption="应用ID"/>
+			
+			<giui:fieldImgupload property="img" fileQueueLimit="3" caption="商品图"/>
+			
+			<giui:fieldLabel property="img1" format="millis" textFormat="yyyy年 MM月 dd日" caption="商品图"/>
+			
+			<giui:fieldSelect property="bo" caption="boolean" convert="boolean"/>
+			
+			<giui:fieldSelect property="bo1" caption="boolean" convert="boolean"/>
+			
 			<giui:fieldPassword notNull="true" property="appSecret" caption="应用密钥"/>
 		</giui:fieldLayout>
 		

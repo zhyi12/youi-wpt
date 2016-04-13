@@ -68,17 +68,25 @@
 			<version>${gsoft.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		<!--标签  -->
+		<!--基础标签库  -->
 		<dependency>
 			<groupId>com.gsoft.framework</groupId>
 			<artifactId>gsoft-framework-ui</artifactId>
 			<version>${gsoft.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+		<!--互联网页面标签库-->
 		<dependency>
 			<groupId>com.gsoft.framework</groupId>
 			<artifactId>gsoft-framework-giui</artifactId>
+			<version>${gsoft.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!--微信页面标签库-->
+		<dependency>
+			<groupId>com.gsoft.framework</groupId>
+			<artifactId>gsoft-framework-mui</artifactId>
 			<version>${gsoft.version}</version>
 			<scope>compile</scope>
 		</dependency>
@@ -91,7 +99,7 @@
 			<scope>compile</scope>
 		</dependency>
 		
-		<!--装饰器  -->
+		<!--基础标签库-->
 		<dependency>
 			<groupId>com.gsoft.decorator</groupId>
 			<artifactId>gsoft-decorator-youi</artifactId>
@@ -99,12 +107,14 @@
 			<scope>compile</scope>
 		</dependency>
 		
+		<!---->
 		<dependency>
 			<groupId>com.gsoft.decorator</groupId>
 			<artifactId>gsoft-decorator-giui</artifactId>
 			<version>${gsoft.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		
 		<!--安全框架  -->
 		<dependency>
 			<groupId>com.gsoft.framework</groupId>
@@ -148,13 +158,13 @@
 		<dependency>
 			<groupId>com.gsoft.esb</groupId> 
 	    	<artifactId>gsoft-esb-bus</artifactId>
-	    	<version>1.0.4-SNAPSHOT</version>
+	    	<version>${gsoft.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>com.gsoft.esb</groupId> 
 	    	<artifactId>gsoft-esb-buscfg</artifactId>
-	    	<version>1.0.4-SNAPSHOT</version>
+	    	<version>${gsoft.version}</version>
 		</dependency>
 
 		<!-- http协议 -->
@@ -183,31 +193,37 @@
 		<dependency>
 			<groupId>com.gsoft.member</groupId>
 			<artifactId>gsoft-member-infoImpl</artifactId>
-			<version>1.0.4-SNAPSHOT</version>
+			<version>${gsoft.version}</version>
 		</dependency>
 		<!-- 微信粉丝 -->
 		<dependency>
 			<groupId>com.gsoft.weixin</groupId>
 			<artifactId>gsoft-weixin-wxmemberImpl</artifactId>
-			<version>1.0.4-SNAPSHOT</version>
+			<version>${gsoft.version}</version>
 		</dependency>
 		<!-- 微信应用 -->
 		<dependency>
 			<groupId>com.gsoft.weixin</groupId>
 			<artifactId>gsoft-weixin-wxappImpl</artifactId>
-			<version>1.0.4-SNAPSHOT</version>
+			<version>${gsoft.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>com.gsoft.weixin</groupId>
 			<artifactId>gsoft-weixin-wxsubscripImpl</artifactId>
-			<version>1.0.4-SNAPSHOT</version>
+			<version>${gsoft.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>com.gsoft.weixin</groupId>
 			<artifactId>gsoft-weixin-wxsubscripImpl</artifactId>
-			<version>1.0.4-SNAPSHOT</version>
+			<version>${gsoft.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.gsoft.weixin</groupId>
+			<artifactId>gsoft-weixin-wxarticleImpl</artifactId>
+			<version>${gsoft.version}</version>
 		</dependency>
 		
 		<dependency>

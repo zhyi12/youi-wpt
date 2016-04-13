@@ -51,6 +51,17 @@ public class MemberPortalController {
 		return jsonpBuilder.toString();
 	}
 	
+	//门户通过jsonp获取服务器信息
+	@RequestMapping(value = "/serverInfo.html")
+	public @ResponseBody String  serverInfo(HttpServletRequest request,
+			HttpServletResponse response){
+		StringBuilder jsonpBuilder = new StringBuilder();
+		
+		jsonpBuilder.append("$.youi.serverConfig.contextPath="+request.getContextPath()+"/");
+		
+		return jsonpBuilder.toString();
+	}
+	
 	@RequestMapping("/logout.html")
 	public ModelAndView logout(
     		HttpServletRequest request,
