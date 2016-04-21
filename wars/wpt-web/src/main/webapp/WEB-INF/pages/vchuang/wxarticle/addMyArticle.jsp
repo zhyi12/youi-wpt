@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/pages/include.jsp"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 
-<giui:page dataSrc="/wxArticleManager/getWxArticleEditorHtml.json?wxArticleId=${param.wxArticleId}">
+<giui:page>
 	
 	<youi:script src="/scripts/3.0/giui/field/field.wxarticle.js"/>
 	<youi:script src="/scripts/ueditor/ueditor.config.js"/>
@@ -14,8 +14,6 @@
 		</giui:fieldLayout>
 		
 		<giui:button name="preview" caption="预览" order="101"/>
-		<giui:button name="publishToSubcr" caption="发布到公众号" order="102"/>
-		
 		<giui:button name="goback" icon="back" caption="返回文章列表" order="103"/>
 	</giui:form>
 	<!--**********************************页面函数Start********************************-->
@@ -24,5 +22,5 @@
 			
 		}).fieldWxArticle('fillWxArticle',results.record.html);
 	</youi:func>
-	<!--**********************************页面函数End**********************************-->
+	
 </giui:page>

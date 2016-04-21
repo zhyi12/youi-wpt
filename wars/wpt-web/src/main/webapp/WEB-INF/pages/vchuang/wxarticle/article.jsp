@@ -11,10 +11,12 @@
 				var wxArticleId = '${param.wxArticleId}';
 				//加载文章
 				$.youi.ajaxUtils.ajax({
-					url:'/esb/web/wxArticleManager/getWxArticle.json?wxArticleId='+wxArticleId,
+					url:'/esb/web/wxArticleManager/viewWxArticle.json?wxArticleId='+wxArticleId,
 					success:function(results){
-						if(results&&results.record&&results.record.wxArticleUrl){
-							window.location.href=results.record.wxArticleUrl;
+						if(results&&results.record){
+							if(results.record.wxArticleUrl){
+								window.location.href=results.record.wxArticleUrl;
+							}
 						}
 					}
 				});

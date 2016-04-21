@@ -21,12 +21,24 @@
 		<script type="text/javascript">
 			$(function(){
 				var wxArticleId = '${param.wxArticleId}';
+				var subscriptionId = '${subscriptionId}';
 				//加载文章
 				$.youi.ajaxUtils.ajax({
 					url:'/esb/web/wxArticleManager/getWxArticleEditorHtml.json?wxArticleId='+wxArticleId,
 					success:function(results){
 						if(results&&results.record&&results.record.html){
-							$('#wx_article_editor').html(results.record.html);
+							$('#wx_article_editor').append(results.record.html);
+						}
+					}
+				});
+				
+				//获取封面图片
+				$.youi.ajaxUtils.ajax({
+					url:'/esb/web/wxArticleManager/getArticleThumbPath.json?wxArticleId='+wxArticleId,
+					success:function(results){
+						if(results&&results.record&&results.record.html){
+							var imgPath = $.youi.serverConfig.contextPath+'upload/download/'+results.record.html+'.html';
+							$('#wx_article_editor').prepend('<img class="wx-article-thumb" height="60px" src="'+imgPath+'"/>');
 						}
 					}
 				});

@@ -109,7 +109,6 @@
 			 */
 			loadPage:function(pageContianer,pageUrl,after){
 				$(this).addClass('loading');
-				
 				if(pageUrl.indexOf('/')===0){
 					pageUrl = $.youi.serverConfig.contextPath+''+pageUrl;
 				}
@@ -301,12 +300,16 @@
 					for(var prop in record){
 						if($.youi.stringUtils.notEmpty(record[prop])){
 							str = str.replace(new RegExp("\\{" + prop + "\\}", "g"), record[prop]);
+						}else{
+							str = str.replace(new RegExp("\\{" + prop + "\\}", "g"), '');
 						}
 					}
 				}
 				return str;
 			},
-		
+			/**
+			 * 
+			 */
 			getPropertyValue:function(record,property){
 				if(!property)return;
 				var value;
@@ -322,7 +325,9 @@
 				}
 				return value;
 			},
-			
+			/**
+			 * 
+			 */
 			setPropertyValue:function(record,property,value){
 				if(!property)return;
 				var properties = property.split('.');
@@ -388,7 +393,9 @@
 				return fieldValues;
 			}
 		},
-		
+		/**
+		 * 
+		 */
 		parameterUtils:{
 			toParams:function(fieldValues){
 				var params = [];
@@ -479,13 +486,21 @@
 		},
 		
 		messageUtils:{
+			/**
+			 * 
+			 */
 			showMessage:function(msg){
 				alert(msg);
 			},
+			/**
+			 * 
+			 */
 			showError:function(msg){
 				$.youi.log.error(msg);
 			},
-			
+			/**
+			 * 
+			 */
 			confirm:function(message,confirmFunc){
 				if(message&&arguments.length > 1){
 					var params = $.makeArray(arguments).slice(2);

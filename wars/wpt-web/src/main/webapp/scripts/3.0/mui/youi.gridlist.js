@@ -42,13 +42,22 @@ require("./youi.resource.js");
 			}
 		},
 		
+		_initAction:function(){
+			this._on({
+				'click [data-command="gridlistCommand"]':function(event){
+					var datas = $.extend({},$(event.currentTarget).data());
+					this.execCommand(event.currentTarget,datas);
+				}
+			});
+		},
+		
 		_parseRecords:function(records){
 			var htmls = [];
 			
 			var template = '<div class="'+this.options.rowStyle+'">'+this.options.template+'</div>';
 			
 			$(records).each(function(){
-				htmls.push($.youi.recordUtils.replaceByRecord(template,this));
+				htmls.push($.youi.recordUtils.replaceByRecord(template,$.extend({_contextPath:$.youi.serverConfig.contextPath},this)));
 			});
 			
 			this.element.html(htmls.join(''));

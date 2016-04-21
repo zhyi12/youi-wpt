@@ -6,6 +6,10 @@
 		caption="新增文章" type="page">
 	</giui:subpage>
 	
+	<giui:subpage src="member/vchuang/wxarticle/addMyArticle.html" subpageId="add" 
+		caption="新增文章" type="page">
+	</giui:subpage>
+	
 	<giui:grid id="grid_wxArticle" idKeys="wxArticleId,mediaId" caption="我的文章列表" 
 				src="/wxArticleManager/getPagerWxArticlesByUser.json"
 				removeSrc="/wxArticleManager/removeWxArticle.json">
@@ -22,10 +26,14 @@
 		</giui:gridCol>
 		
 		<giui:button name="addWxArticle" caption="新增文章"></giui:button>
-		
 	</giui:grid>
 	
 	<!--**********************************页面函数Start********************************-->
+	<!--  -->
+	<youi:func name="grid_wxArticle_addWxArticle">
+		$elem('subpage_add',pageId).subpage('open',{},'');
+	</youi:func>
+	
 	<!-- 打开编辑微文章页面 -->
 	<youi:func name="grid_wxArticle_edit" params="dom,options,record">
 		$elem('subpage_edit',pageId).subpage('open',{},'',record);

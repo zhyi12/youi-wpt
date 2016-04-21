@@ -5,7 +5,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
 		
-		<title>捧捧场</title>
+		<title>科研指南针</title>
 		
 		<youi:script src="/scripts/3.0/lib/jquery.js"/>
 		<youi:script src="/scripts/3.0/lib/jquery-ui.min.js"/>
@@ -57,6 +57,7 @@
 		
 		<script type="text/javascript">
 			$(function(){
+				$.youi.serverConfig.contextPath = '<%=request.getContextPath()%>/';
 				$('#youi-phone-page').app();
 				$('#tabbar').tabbar();
 			});

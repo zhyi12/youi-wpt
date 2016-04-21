@@ -1,8 +1,6 @@
 <%@ include file="/WEB-INF/pages/include.jsp"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 
-header
-myheader
 <div id="youi_grid_list">
 </div>
 
@@ -11,7 +9,6 @@ myheader
 		border:1px solid #C3C3C3;
 		background:#fafafa;
 		margin:2px 10px 10px 10px;
-		min-height:120px;
 		border-radius:5px;
 	}
 	
@@ -62,10 +59,10 @@ myheader
 	$(function(){
 		$('#youi_grid_list').gridList({
 			rowStyle:'article-list-item',
-			src:'/gsoft-web/esb/web/userManager/getPagerUsers.json',
-			template:'<div class="article-list-title">{userCaption}</div>'
-					+'<div class="article-list-content"><img width="100%" src="http://www.ivtuiguang.com/fs/8a2d367551687e23015168a3be8c0070/image/20160302/7371456931006199.jpg"/></div>'
-					+'<div class="article-list-footer"><div class="list-cell cell-x2"><img class="user-header" width="30" src="/gsoft-web/styles/images/user.jpg"/>{userCaption}</div><div class="list-cell"><span class="youi-icon icon-yen"></span>0.07元/次</div><div class="list-cell"><span class="youi-icon icon-eye-open"></span>12</div></div>'
+			src:$.youi.serverConfig.contextPath+'esb/web/wxArticleManager/getPagerWxArticles.json?subscriptionId=${subscriptionId}',
+			template:'<a class="article-list-title page-link" href="{_contextPath}member/vchuang/wxarticle/copy2MyArticle/{subscriptionId}.html?wxArticleId={wxArticleId}">{wxArticleTitle} {createTime}'
+					+'<div class="article-list-content">{wxArticleSummary}</div></a>'
+					+'<div class="article-list-footer"></div>'
 		});
 	});
 //-->

@@ -29,7 +29,6 @@ import com.gsoft.weixin.wxsubscrip.service.WxSubscriptionManager;
 @RequestMapping("/member")
 public class MemberPageController {
 	
-	@SuppressWarnings("unused")
 	@Autowired
 	private UserService userService;//用户服务
 	
