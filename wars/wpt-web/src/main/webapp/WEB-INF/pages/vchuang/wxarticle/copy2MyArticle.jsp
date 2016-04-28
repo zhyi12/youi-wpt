@@ -4,7 +4,6 @@
 
 <youi:html title="生成我的文章">
 	<head>
-		<%response.setHeader("Cache-Control","no-cache, no-store"); %>
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
 		<%@ include file="/WEB-INF/pages/common/giuiScriptAndCss.jsp"%>
 	</head>

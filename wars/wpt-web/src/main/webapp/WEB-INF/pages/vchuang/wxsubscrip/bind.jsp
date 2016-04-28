@@ -10,6 +10,8 @@
 			
 			<giui:fieldImgupload property="img" fileQueueLimit="3" caption="商品图"/>
 			
+			<giui:fieldFile property="file" caption="文件"/>
+			
 			<giui:fieldLabel property="img1" format="millis" textFormat="yyyy年 MM月 dd日" caption="商品图"/>
 			
 			<giui:fieldSelect property="bo" caption="boolean" convert="boolean"/>

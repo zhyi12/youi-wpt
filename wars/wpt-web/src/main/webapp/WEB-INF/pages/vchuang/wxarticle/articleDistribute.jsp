@@ -5,9 +5,10 @@
 
 <youi:html title="微文章转发">
 	<head>
-		<%response.setHeader("Cache-Control","no-cache, no-store"); %>
 		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
 		<%@ include file="/WEB-INF/pages/common/muiScriptAndCss.jsp"%>
+		
+		<youi:script src="/weixin/${subscriptionId}/wxconfig.html?jsApi=onMenuShareAppMessage"/>
 	</head>
 	<body  style="margin:10px;">
 	
@@ -18,6 +19,8 @@
 		</div>
 
 		<shiro:authenticated>
+		
+		<button class="btn btn-default btn-phone"  id="onMenuShareTimeline">分析到朋友圈</button>
 		<giui:gridList id="gridlist_subscription" src="/wxSubscriptionManager/getPagerWxSubscriptionsByUser.json">
 			<button data-subscription-id="{subscriptionId}" data-wx-article-id="${param.wxArticleId}" 
 				data-command="gridlistCommand" data-name="distribute" class="btn btn-default btn-phone" 
@@ -58,7 +61,24 @@
 						}
 					}
 				});
-				
+			});
+			
+			wx.ready(function(){
+				alert(1);
+				document.querySelector('#onMenuShareTimeline').onclick = function(){
+		          	console.log('aaaaaaaaa');
+		          	wx.onMenuShareTimeline({
+		            	title: '促销易幸运大抽奖', // 分享标题
+		            	link: 'http://movie.douban.com/subject/25785114/', // 分享链接
+		            	imgUrl: 'http://demo.open.weixin.qq.com/jssdk/images/p2166127561.jpg', // 分享图标
+		            	success: function (res) { 
+		                	console.log(res);
+		            	},
+		            	cancel: function () { 
+		                	// 用户取消分享后执行的回调函数
+		            	}
+		          });
+		        }
 			});
 		</script>
 	</body>
